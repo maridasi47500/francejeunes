@@ -1,0 +1,13 @@
+
+<%=form_with model: song, url: sendasong_path do |form|%>
+<td>
+   Retirer les paroles de <%=song.title%> par <%=song.artist.name%> 
+</td>
+
+<td>
+    <%=hidden_field_tag :id, song.id%>
+    <%=form.hidden_field :contentmember_id, value: current_member.id%>
+    <%=form.hidden_field :myaction, value: "remove"%>
+   <%=form.submit t('my.button.removelyrics')%>
+</td>
+<%end%>

@@ -1,0 +1,13 @@
+<%=form_with model: rubrique, url: addimages_path do |form|%>
+<div>
+    <%=form.label :addimage, "charger des images"%>
+  <%=form.file_field :addimage, multiple: true%>
+</div>
+<div>
+    <%=hidden_field_tag :rubriqueid, rubrique.id%>
+    <%=form.hidden_field :memberid, value: current_member.id%>
+  <%=form.submit "envoyer"%>
+</div>
+</div>
+
+<%end%>

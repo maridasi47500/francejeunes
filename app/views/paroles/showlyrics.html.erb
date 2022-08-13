@@ -1,0 +1,47 @@
+<td width="100%" valign="top"><div align="justify"><script language="javascript">
+function ChangeUrl(formulaire)
+{location.href="paroles_div.php?&action="+formulaire.action.options[formulaire.action.selectedIndex].value;}
+</script>
+
+<table width="100%">
+<tbody><tr><td nowrap=""><b>Aller à :</b>&nbsp;</td><td>
+            <form method="get" action="paroles_div.php">
+
+            <%=render "selectartist"%>
+        
+        </form>
+        
+        </td><td width="100%">&nbsp;<input type="submit" value="Go"></td></tr><tr><td colspan="3" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr></tbody></table>
+<%=render "alphabetartistsong"%>
+
+
+
+<div style="float: left;"><script type="text/javascript">GA_googleFillSlot("FJ_120x600_LYRICS");</script></div><div style="float: right; margin-left: 10px;"><center><a href="paroles_edit.php?tid=<%=@song.id%>&actions=lyrics"><img src="/images/crayonedit.png" width="30px" height="30px"border="0"></a><br><br></center></div><div>
+       
+        <div style="float: right; margin-left: 10px;"><center>
+                 <%if @song.youtubelink_id && @song.youtubelink_id.length > 0%>
+                <iframe width="300" height="239" src="<%=@song.youtubelink%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <%else%>
+       <a href="paroles_edit.php?tid=<%=@song.id%>&actions=video"><img src="/images/youtubelink.png" border="0"></a>
+
+    <%end%>
+            
+            
+            </center>
+        </div>
+    <%if notice%>
+    <div class="message"><img class="message" src="images/errormessage.gif" align="absmiddle"><span class="erreur"><%=notice%></span></div>
+    <%end%>
+    
+    
+    <div style="margin-left: 140px;" class=""><h1>Paroles de <%=@song.title%></h1><h3>Interprétées par <a href="paroles.php?artiste=<%=@artist.name.gsub(' ','+')%>"><i><%=@artist.name%></i></a></h3><div style="margin: 5px 0 5px 10px; padding: 5px 5px 0 5px; border: 1px solid #373c4f; background-color: #ffffff; float: right; text-align: right; white-space: nowrap;"><iframe src="https://www.facebook.com/widgets/fan.php?id=219687268334&amp;name=&amp;width=100&amp;connections=0&amp;stream=0&amp;logobar=&amp;css=http%3A%2F%2Fwww.france-jeunes.net%2Ffacebook%2Ffb-fan.css" scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 100px; height: 28px;" allowtransparency="true"></iframe><iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.france-jeunes.net%2Fparoles-<%=@artist.name.parameterize(separator: '.')%>-<%=@song.title.parameterize(separator: '.')%>-<%=@song.id%>.htm&amp;layout=standard&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;width=300&amp;height=28" scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 300px; height: 28px;" allowtransparency="true"></iframe></div><div style="padding: 5px; margin: 5px 0; background-color: #e1eee1;"><a href="publish_wizard.php"><b>Écris un article</b></a> et <a href="shop.php"><b>gagne des cadeaux</b></a> !</div>
+    
+    
+    <section id="paroles" style="<%if member_signed_in?%>color: rgb(0, 0, 0); font-size: 12px;<%else%>color: rgb(255,255,255); font-size: 1px;<%end%>">
+        <%=simple_format(@song.content)%>
+  
+    
+    </section>
+    
+    
+    <p align="center"><script type="text/javascript">GA_googleFillSlot("FJ_468x60_LYRICS");</script></p></div><div style="margin: 5px 0 5px 10px; padding: 5px 5px 0 5px; border: 1px solid #373c4f; background-color: #ffffff; float: right; text-align: right; white-space: nowrap;"><iframe src="https://www.facebook.com/widgets/fan.php?id=219687268334&amp;name=&amp;width=100&amp;connections=0&amp;stream=0&amp;logobar=&amp;css=http%3A%2F%2Fwww.france-jeunes.net%2Ffacebook%2Ffb-fan.css" scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 100px; height: 28px;" allowtransparency="true"></iframe><iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.france-jeunes.net%2Fparoles-<%=@artist.name.parameterize(separator: '.')%>-<%=@song.title.parameterize(separator: '.')%>-<%=@song.id%>.htm&amp;layout=standard&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;width=300&amp;height=28" scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 300px; height: 28px;" allowtransparency="true"></iframe></div><div style="padding: 5px; margin: 5px 0; background-color: #e1eee1;"><a href="publish_wizard.php"><b>Écris un article</b></a> et <a href="shop.php"><b>gagne des cadeaux</b></a> !</div><script type="text/javascript">$('section#paroles').css('color','#ffffff').css('font-size','1px');</script></div></td>

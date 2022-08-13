@@ -1,0 +1,14 @@
+Bienvenue sur France-jeunes.com, <%= @user.fullname %>
+===============================================
+
+ Vous avez payé avec succès et êtes devenu un ultramembre ,
+      votre pseudonyme est <%= @user.username %>.
+
+    Voici vos codes d'accès :
+    <%@payment.accesscodes.each do |code|%>
+    
+    -  <%=code.code%>
+    <% end%>
+ Pour se connecter au site, il vous suffit de cliquer sur ce lien <%= @url %>.
+
+Merci pour votre participation et passez une bonne journée !

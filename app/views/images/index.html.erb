@@ -1,0 +1,43 @@
+
+
+
+<td width="100%" valign="top"><div align="justify"><script language="javascript">
+function ChangeUrl(formulaire)
+{location.href="imgserv.php?&tid="+formulaire.tid.options[formulaire.tid.selectedIndex].value+"&rubrique="+formulaire.tid.options[formulaire.tid.selectedIndex].value;}
+function ChangeUrl2(formulaire)
+{location.href="imgserv.php?&tid=0&tid2="+formulaire.tid2.options[formulaire.tid2.selectedIndex].value+"&rubrique="+formulaire.tid2.options[formulaire.tid2.selectedIndex].value;}
+</script>
+<table width="100%">
+    
+    <tbody><tr><td nowrap=""><b>Rubrique :</b>&nbsp;</td><td>
+                <form method="get" action="imgserv.php">
+                    <%=select_tag "tid", options_for_select(Rubriqueimage.all.collect {|h| [h.name, h.id]}, @rubrique.try(:id)), {onchange: "ChangeUrl(this.form)", include_blank: "Choix de la rubrique"}%>
+                </form>
+                
+                </td><td></td><td width="100%">&nbsp;<input type="submit" value="Go"></td></tr><tr><td colspan="4" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr></tbody></table><br>
+
+
+
+<table cellspacing="0" cellpadding="2" border="0" width="100%"><tbody>
+        <%@rubriques.each do |rubriques|%>
+        <tr>
+            
+            <%rubriques.each do |rub|%>
+            
+            <td width="33%" align="left" valign="top"><a href="<%=rub.myurl%>">
+                    <img src="/an_ruimgs/<%=rub.image%>.img" width="50" height="50" align="left" class="images"><h2><%=rub.name%></h2></a><%=rub.sousrubimages.map {|h|link_to(h.name, h.myurl, style: "text-decoration:none;")}.to_sentence(last_word_connector: ', ').html_safe%>...<br><br>
+            </td>
+            <%end%>
+            
+            
+            
+            
+        </tr>
+<%end%>        
+        
+        
+        <tr><td colspan="3" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr>
+        
+        <tr bgcolor="#F0F1F6" height="15"><td colspan="3"><b>53 077 images dans cet annuaire</b> sur <b>58 512 soumises</b>.</td></tr>
+    
+    </tbody></table></div></td>

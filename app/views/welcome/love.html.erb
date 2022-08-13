@@ -1,0 +1,37 @@
+<td>
+        <h2>
+      Membres ayant reçu le plus de dédicaces
+    </h2>
+    
+    <p>laisser des dédicaces à la personne qu'on aime en commençant par "je t'aime", en espérant que tu montes dans le classement</p>
+        <table>
+            <%@members.each do |member|%>
+            <tr>
+                <td>
+              de <%=render "members/memberlink", member: Member.find(member.senderid)%> à 
+<%=render "members/memberlink", member: Member.find(member.memberid)%> 
+                    
+            </td>
+            <td>(<%=member.nb%> <%="dédicace".pluralize(member.nb)%>)</td>
+            <td><%=render "members/memberdedicacesrecues", member: Member.find(member.memberid)%> 
+</td>
+            </tr>
+            <%end%>
+    </table>
+    <br><br>
+    <%if @members.nbpageprec(params[:page]).length > 0 %>
+    <%=link_to "page précédente",love_path(page: (params[:page].to_i-1))%>
+    <%end%>
+    <%if @members.nbpagesuivante(params[:page]).length > 0%>
+    <%=link_to "page suivante",love_path(page: (params[:page].to_i+1))%>
+    <%end%>
+    <br><br>
+    
+    <%=form_with model: current_member, scope: "", url: updatememb_path do |form|%>
+    
+    <%=form.label "aime", "au fait, que préfèrez-vous ?"%>
+    <%=form.select "aime", [['les deux',''],['femmes','f'],['hommes','']]%>
+    <br>
+    <%=form.submit "enregistrer"%>
+    <%end%>
+</td>

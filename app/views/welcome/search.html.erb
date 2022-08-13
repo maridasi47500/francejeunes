@@ -1,0 +1,49 @@
+
+<td width="100%" valign="top"><div align="justify"><table cellspacing="0" cellpadding="2" border="0" width="100%"><tbody>
+                
+                
+             <tr><td colspan="1" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td>
+             </tr>
+             <%if !notice%>
+                     
+    <%case params[:search_type]%>
+<%when "articles"%>
+             <%if @articles.length > 0%>
+           <%=render collection:  @articles, partial: "welcome/articleresult", as: :article%>
+             <%else%>
+             <tr><td>Aucun article ne correspond à votre recherche.</td></tr>
+             <%end%>
+<%when "membres"%>
+             <%if @members.length > 0%>
+           <%=render collection:  @members, partial: "welcome/membreresult", as: :member%>
+                          <%else%>
+             <tr><td>Aucun membre ne correspond à votre recherche.</td></tr>
+             <%end%>
+
+<%when "paroles"%>
+             <%if @songs.length > 0%>
+           <%=render collection:  @songs, partial: "welcome/songresult", as: :song%>
+                          <%else%>
+             <tr><td>Aucune chanson ne correspond à votre recherche.</td></tr>
+             <%end%>
+<%when "images"%>
+             <%if @images.length > 0%>
+             <%@images.each_slice(3).to_a.each do |images|%>
+             <tr>
+           <%=images.map {|g|g.is_a?(Rubriqueimage) ? render("welcome/rubriqueimage", image: g) : render("welcome/sousrubriqueimage", image: g)}.join('').html_safe %>
+             </tr>
+    <%end%>
+    <%else%>
+             <tr><td>Aucune rubrique de l'annuaire d'image ne correspond à votre recherche.</td></tr>
+             <%end%>
+
+
+            
+            <%end%>
+            <%end%>
+            
+            </tbody>
+        
+        
+        
+        </table></div></td>

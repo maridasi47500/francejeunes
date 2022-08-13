@@ -1,0 +1,2 @@
+    <%=select_tag :tid, options_for_select(([["Sondages","sondages"],['choix du forum',''],["Messages surveillés","-1"],["Derniers messages","-2"]]+Forumsubcat.allsubcats.collect{|y|[y.name,y.id]}), params[:tid]), {onchange: "ChangeUrl(this.form)"}%>
+

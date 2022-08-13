@@ -1,0 +1,125 @@
+<html><head>
+<title>[POP] FRANCE-JEUNES.NET : DES DIZAINES DE MILLIERS D'ARTICLES SUR TOUS LES SUJETS</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="Description" content="Le webzine des webnautes... bref le rendez-vous des jeunes internautes : actus, culture, sports, multimédia, amour, humour, bons plans, vie du jeune, les trucs des jeunes, etc...">
+<meta name="Keywords" content="jeunes,jeunesse,draguer,communauté,15,25,france,actualité,people,stars,cinema,musique">
+<meta property="og:site_name" content="<%=@member.country.try(:name)%>-jeunes.net">
+<meta property="fb:page_id" content="219687268334">
+<meta property="fb:admins" content="771435067">
+
+<link rel="canonical" href="/view.php?tid=<%=@member.id%>"><meta property="og:title" content="<%=@member.fullname%>"><meta property="og:description" content="Fiche de <%=@member.fullname%> (<%=@member.username%>)"><meta property="og:image" content="/avatars/defaut/<%=@member.image%>"><meta property="og:url" content="/view.php?tid=<%=@member.id%>"><meta property="og:type" content="public_figure">
+<style type="text/css">
+html,body	{ height: 100%; }
+body,table,td,tr,input,select,textarea	{ font-size: 10px; font-family: "verdana","arial","helvetical","geneva",sans-serif; }
+h1	{ font-size: 18px; margin: 0px; }
+h2	{ font-size: 12px; margin: 0px; }
+h3	{ font-size: 11px; margin: 0px; }
+h4	{ font-size: 10px; font-weight: normal; color: #000000; text-decoration: none; margin: 0px; }
+
+.erreur { color: #CC0000; }
+.success { color: #42921E; }
+div.message { background-color: #FFFFE1; border: 1px dashed #CFCFCF; margin-top: 8px; margin-bottom: 16px; padding: 6px 6px 6px 32px; line-height: 18px; font-weight: bold; font-size: 13px; }
+div.message td { line-height: 18px; }
+img.message { margin-left: -24px; }
+
+a { text-decoration: none; font-family: "verdana","arial","helvetical","geneva",sans-serif; }
+a:link,a:visited	{ color: #3F4D5C; text-decoration: underline; }
+a:hover,a:active	{ color: #000000; text-decoration: underline; }
+
+.ml,a.ml:link,a.ml:visited,a.ml:hover,a.ml:active	{ font-size: 10px; color: #1B501B; text-decoration: none; }
+a.ml:hover,a.ml:active	{ color: #000000; text-decoration: none; }
+
+.mr,a.mr:link,a.mr:visited,a.mr:hover,a.mr:active	{ font-size: 10px; color: #515117; text-decoration: none; }
+a.mr:hover,a.mr:active	{ color: #000000; text-decoration: none; }
+
+a.blanc:link,a.blanc:visited	{ color: #FFFFFF; text-decoration: underline; }
+a.blanc:hover,a.blanc:active	{ color: #FFFFFF; text-decoration: underline; }
+
+img.mr	{ border: solid #63632A 1px; margin: 3px; margin-top: 0px; margin-left: 0px; }
+img.images	{ border: solid #373C4F 1px; margin: 3px; margin-top: 0px; }
+img.articles	{ border: solid #000000 1px; margin: 3px; margin-top: 0px; margin-bottom: 0px; }
+img.articlesdesc	{ border: solid #000000 1px; margin: 3px; margin-top: 0px; margin-bottom: 0px; }
+
+.titre1	{ font-size: 18px; color: #7284B9; font-family: "trebuchet ms"; font-weight: bold; }
+.titre2	{ font-size: 14px; color: #A7B5DD; font-family: "trebuchet ms"; font-weight: bold; }
+.small	{ font-size: 9px; }
+.margin	{ margin: 3px; }
+.blanc	{ color: #FFFFFF; }
+</style>
+<!-- <script type="text/javascript" src="https://partner.googleadservices.com/gampad/google_service.js" data-cfasync="false"></script>
+<script type="text/javascript">GS_googleAddAdSenseService("ca-pub-8579961303887111");GS_googleEnableAllServices();</script>
+<script type="text/javascript">
+  GA_googleAddSlot("ca-pub-8579961303887111", "FJ_120x240");
+  GA_googleAddSlot("ca-pub-8579961303887111", "FJ_120x240_CONTENT");
+  GA_googleAddSlot("ca-pub-8579961303887111", "FJ_120x240_MENU_NEWDESIGN");
+  GA_googleAddSlot("ca-pub-8579961303887111", "FJ_120x240_MENU_OLDDESIGN");
+  GA_googleAddSlot("ca-pub-8579961303887111", "FJ_120x90");
+  GA_googleAddSlot("ca-pub-8579961303887111", "FJ_120x90_MENU_NEWDESIGN");
+  GA_googleAddSlot("ca-pub-8579961303887111", "FJ_120x90_MENU_OLDDESIGN");
+  GA_googleAddSlot("ca-pub-8579961303887111", "FJ_300x250");
+  GA_googleAddSlot("ca-pub-8579961303887111", "FJ_300x250_LYRICS");
+  GA_googleAddSlot("ca-pub-8579961303887111", "FJ_300x250_LYRICS_ARTISTS-TITLES");
+  GA_googleAddSlot("ca-pub-8579961303887111", "FJ_300x250_WINDOWS");
+  GA_googleAddSlot("ca-pub-8579961303887111", "FJ_336x280");
+  GA_googleAddSlot("ca-pub-8579961303887111", "FJ_336x280_ARTICLES");
+  GA_googleAddSlot("ca-pub-8579961303887111", "FJ_468x15");
+  GA_googleAddSlot("ca-pub-8579961303887111", "FJ_468x60");
+  GA_googleAddSlot("ca-pub-8579961303887111", "FJ_468x60_ARTICLES");
+  GA_googleAddSlot("ca-pub-8579961303887111", "FJ_728x90");
+  GA_googleAddSlot("ca-pub-8579961303887111", "FJ_FLASHABSOLUTE");
+  GA_googleAddSlot("ca-pub-8579961303887111", "FJ_SITEUNDER");
+</script> -->
+<script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script type="text/javascript">
+	var _gaq=_gaq || [];
+	_gaq.push(['_setAccount','UA-87251-5']);
+	_gaq.push(['_trackPageview']);
+
+	(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();
+</script>
+<script type="text/javascript">
+		// GA_googleFetchAds();
+</script>
+</head>
+
+<body bgcolor="#E1EEE1" text="#000000" style="margin: 0px; height: 100%;">
+<table width="100%" height="100%" cellspacing="0" cellpadding="0" border="0" style="height: 100%;">
+<tbody><tr><td bgcolor="#FFFFFF" width="100%" valign="top"><table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tbody><tr><td background="images/lignes.gif" align="right"><a href="/" target="_blank"><img src="images/logo.gif" width="221" height="50" border="0"></a></td></tr>
+</tbody></table><img src="images/invisible.gif" width="1" height="15"><br><div align="justify" class="margin"><table cellspacing="0" cellpadding="2" border="0" width="100%"><tbody>
+            <tr bgcolor="#F0F1F6" height="15"><td align="center"><b><a href="send.php?tid=<%=@member.id%>">contacter</a> &nbsp;&nbsp; <a href="dedicaces.php?tid=<%=@member.id%>">dédicaces</a> &nbsp;&nbsp; <a href="all.php?tid=<%=@member.id%>">photos</a> &nbsp;&nbsp; <a href="#articles">articles</a> &nbsp;&nbsp;  <a href="view.php?tid=<%=@member.id%>&amp;update=1">mettre à jour</a> &nbsp;&nbsp; <a href="#autres">autres</a></b></td></tr><tr><td colspan="1" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr><tr><td><center><iframe src="https://www.facebook.com/widgets/fan.php?id=219687268334&amp;name=&amp;width=100&amp;connections=0&amp;stream=0&amp;logobar=&amp;css=http%3A%2F%2Fwww.france-jeunes.net%2Ffacebook%2Ffb-fan.css" scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 100px; height: 23px;" allowtransparency="true"></iframe><iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.france-jeunes.net%2Fview.php%3Ftid%3D184375&amp;layout=standard&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;width=319&amp;height=23" scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 319px; height: 23px;" allowtransparency="true"></iframe></center></td></tr><tr><td colspan="1" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr><tr><td><img src="/avatars/defaut/<%=@member.image%>" align="right" class="images"><font size="4"><i><b><%=@member.username%></b></i></font><br><font size="2"><b><%=@member.fullname%></b></font><br>femme.<br><br><font size="2">Non connecté (idle: <b>1293j 03h 53min 01s</b>)</font><br><font size="5"><i><b><%=@member.age%></b></i></font></td></tr><tr><td colspan="1" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr><tr><td><font size="4"><b><%=@member.city.try(:name)%>, <%=@member.country.try(:name)%></b></font>
+                
+                <br>
+                
+                </font></td></tr>
+        
+        
+        <tr><td colspan="1" style="padding: 0px;">
+                
+                <table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody>
+                
+                
+                </table></td></tr>
+        
+        <tr><td><a name="articles"></a><font size="4">
+                
+                          <%if @member.id != current_member.id%>
+
+                
+                <b>Lui envoyer un message :</b></font>
+                
+                <br>
+                <%=render "contactermembre", member: @member %>
+            <%end%>
+            
+            </td></tr>
+        <%=render "donneesmembre", member: @member%>
+</tbody></table>
+<script>
+    window.onunload = refreshParent;
+    function refreshParent() {
+        window.opener.location.reload();
+    }
+</script>
+
+
+</body></html>

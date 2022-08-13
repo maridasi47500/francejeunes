@@ -1,0 +1,10 @@
+<form action="/creerparagraphe.html.erb" method="post">
+    <%=text_area_tag :content, "",style: "width: 500px"%>
+    <br>
+        <%=hidden_field_tag :postid, params[:articleid]%>
+
+    <br>
+  <%=submit_tag "ok"%>
+</form>
+
+

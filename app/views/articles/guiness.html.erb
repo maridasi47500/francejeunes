@@ -1,0 +1,146 @@
+<td width="100%" valign="top">
+    <div align="justify">
+        <table cellspacing="0" cellpadding="0" border="0">
+            <tbody>
+                <tr>
+                    <td width="50%" valign="top">
+                        <table width="100%" cellspacing="0" cellpadding="2" border="0">
+                            <tbody>
+                                <tr>
+                                    <td colspan="3">
+                                        <div class="titre1">Articles les plus lus</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="padding: 0px;">
+                                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td bgcolor="#373C4F">
+                                                        <img src="./RECORDS - FRANCE-JEUNES.NET_files/invisible.gif" width="1" height="1">
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <%=render partial: "articles/articlelespluslus", collection: Article.lespluslus, as: :article, locals: {no: (1..3).to_a}%>
+                             
+                                
+                                
+                                
+                                <tr><td colspan="3"><br><br><div class="titre1">Articles ayant le plus de succès</div></td>
+                                </tr>
+                                <tr><td colspan="3" style="padding: 0px;"><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td bgcolor="#373C4F"><img src="./RECORDS - FRANCE-JEUNES.NET_files/invisible.gif" width="1" height="1"></td></tr></tbody></table></td>
+                                </tr>
+                                <%=render partial: "articles/articleleplussucces", collection: Article.leplussucces, as: :article, locals: {no: (1..3).to_a}%>
+
+                               
+                                <tr><td colspan="3"><br><br><div class="titre1">Articles les mieux notés</div></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="padding: 0px;">
+                                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                            <tbody>
+                                                <tr><td bgcolor="#373C4F"><img src="./RECORDS - FRANCE-JEUNES.NET_files/invisible.gif" width="1" height="1"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <%=render partial: "articles/articlelemieuxnote", collection: Article.lemieuxnote, as: :article, locals: {no: (1..3).to_a}%>
+                               
+                                <tr><td colspan="3"><br><br><div class="titre1">Articles les plus long</div></td>
+                                </tr>
+                                <tr><td colspan="3" style="padding: 0px;"><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td bgcolor="#373C4F"><img src="./RECORDS - FRANCE-JEUNES.NET_files/invisible.gif" width="1" height="1"></td></tr></tbody></table></td>
+                                </tr>
+                                <%=render partial: "articles/articlelepluslong", collection: Article.lepluslong, as: :article, locals: {no: (1..3).to_a}%>
+                           
+                                <tr><td colspan="3"><br><br><div class="titre1">Articles ayant le plus fait réagir</div></td>
+                                </tr>
+                                <tr><td colspan="3" style="padding: 0px;"><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td bgcolor="#373C4F"><img src="./RECORDS - FRANCE-JEUNES.NET_files/invisible.gif" width="1" height="1"></td></tr></tbody></table></td>
+                                </tr>
+                                <%=render partial: "articles/articlelepluscommente", collection: Article.lepluscommente, as: :article, locals: {no: (1..3).to_a}%>
+                               
+                            </tbody>
+                        </table>
+                    </td>
+                    <td style="padding: 0px;" bgcolor="#373C4F"><img src="./RECORDS - FRANCE-JEUNES.NET_files/invisible.gif" width="1" height="1">
+                    </td>
+                    <td width="50%" valign="top">
+
+                        <table width="100%" cellspacing="0" cellpadding="2" border="0">
+                            <tbody>
+                                <tr>
+                                    <td colspan="3"><div class="titre1">Membres les plus lus</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="padding: 0px;">
+                                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td bgcolor="#373C4F"><img src="./RECORDS - FRANCE-JEUNES.NET_files/invisible.gif" width="1" height="1">
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <%=render partial: "members/lepluslu", collection: Member.lepluslu, as: :member, locals: {no: (1..3).to_a}%>
+                                <tr><td colspan="3"><br><br><div class="titre1">Membres ayant le plus de fliz restants</div></td>
+                                </tr>
+                                <tr><td colspan="3" style="padding: 0px;"><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td bgcolor="#373C4F"><img src="./RECORDS - FRANCE-JEUNES.NET_files/invisible.gif" width="1" height="1"></td></tr></tbody></table></td>
+                                </tr>
+                                <%=render partial: "members/leplusdefliz", collection: Member.leplusdefliz, as: :member, locals: {no: (1..3).to_a}%>
+                              
+                                <tr><td colspan="3"><br><br><div class="titre1">Membres ayant écrit le plus d'articles</div></td>
+                                </tr>
+                                <tr><td colspan="3" style="padding: 0px;"><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td bgcolor="#373C4F"><img src="./RECORDS - FRANCE-JEUNES.NET_files/invisible.gif" width="1" height="1"></td></tr></tbody></table></td>
+                                </tr>
+                                <%=render partial: "members/leplusarticles", collection: Member.leplusarticles, as: :member, locals: {no: (1..3).to_a}%>
+                               
+                                <tr>
+                                    <td colspan="3"><br><br><div class="titre1">Membres ayant écrit le plus de messages dans les forums</div>
+                                    </td>
+                                </tr>
+                                <tr><td colspan="3" style="padding: 0px;"><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td bgcolor="#373C4F"><img src="./RECORDS - FRANCE-JEUNES.NET_files/invisible.gif" width="1" height="1"></td></tr></tbody></table></td>
+                                </tr>
+                                <%=render partial: "members/leplusmessagesforum", collection: Member.leplusmessagesforum, as: :member, locals: {no: (1..3).to_a}%>
+                                <tr><td colspan="3"><br><br><div class="titre1">Membres ayant écrit le plus de messages aux autres membres</div></td>
+                                </tr>
+                                <tr><td colspan="3" style="padding: 0px;">
+                                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td bgcolor="#373C4F">
+                                                        <img src="./RECORDS - FRANCE-JEUNES.NET_files/invisible.gif" width="1" height="1"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3"><br><br><div class="titre1">Membres ayant reçu le plus de messages</div></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="padding: 0px;">
+                                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td bgcolor="#373C4F">
+                                                        <img src="./RECORDS - FRANCE-JEUNES.NET_files/invisible.gif" width="1" height="1"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+
+
+                </tr>
+            </tbody>
+        </table>
+    </div></td>

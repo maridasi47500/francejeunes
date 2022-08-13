@@ -1,0 +1,56 @@
+<td width="100%" valign="top"><div align="justify"><script language="javascript">
+function ChangeUrl(formulaire)
+{location.href="meetings?<%=@params2.to_query%>&actions="+formulaire.actions.options[formulaire.action.selectedIndex].value;}
+function ChangeUrl2(formulaire)
+{location.href="meetings.php?<%=@params3.to_query%>&form_order="+formulaire.form_order.options[formulaire.form_order.selectedIndex].value;}
+</script>
+<table width="100%">
+
+
+<tbody>
+        <form method="post" action="meetings.php?<%=@params2.to_query%>">
+
+    <tr><td nowrap=""><b>Aller à :</b>&nbsp;</td><td>
+            
+       
+        <%=select_tag :actions, options_for_select([[ "Choix du sexe",""],["Choix du pays","pays"],["Choix de la ville","ville"], ["Choix de la tranche d'âge", "age"], ["Résultats de la recherche", "results"]], params[:actions]), {onchange: "ChangeUrl(this.form)"}%>
+        </td><td width="100%">&nbsp;<input type="submit" value="Go"></td></tr>
+    </form>
+    <tr><td colspan="3" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr>
+
+<form method="post" action="meetings.php?<%=@params1.to_query%>">
+<tr><td nowrap=""><b>Trier par :</b>&nbsp;</td><td>
+       
+            <%=select_tag :form_order, options_for_select([[ "Heure de la dernière page vue",""],["Ordre alphabétique","alpha"],["Ville","ville"], ["Âge", "age"],["Sexe","sexe"], ["Ancienneté", "id"]], params[:form_order]), {onchange: "ChangeUrl2(this.form)"}%>
+
+    </td><td width="100%">&nbsp;<input type="submit" value="Go"></td>
+</tr>
+</form>
+
+
+<tr><td colspan="3" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr></tbody>
+
+
+</table>
+
+
+
+<br>
+    <%case params[:actions]%>
+    <%when "age"%>
+
+    <%=render partial: "choixage", locals: @params1%>
+
+    <%when "ville"%>
+    <%=render partial:  "choixville", locals: @params1%>
+    <%when "pays"%>
+<%=render partial: "pays", locals: @params1%>
+<%when "sexe"%>
+    <%=render partial: "sexe", locals: @params1%>
+<%when "results"%>
+  <%=render partial: "formresults", locals: @params1%>
+<%else%>
+    <%=render partial: "sexe", locals: @params1%>
+
+<%end%>
+    </div></td>

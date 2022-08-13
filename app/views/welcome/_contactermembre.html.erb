@@ -1,0 +1,9 @@
+<%=form_with scope:"",model: member, url: contactmembre_path do |form|%>
+<%=form.label :contentmessage, "contenu du message :"%>
+<%=form.text_area :contentmessage%>
+<%=hidden_field_tag :tid, member.id%>
+<%=form.hidden_field :currentmemberid, value: current_member.id%>
+
+<%=form.submit "envoyer"%>
+
+<%end%>

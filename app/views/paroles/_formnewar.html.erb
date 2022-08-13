@@ -1,0 +1,6 @@
+<%=form_with scope: "", url: new_artist_path do |form|%>
+                <tr><td colspan="5"><br><b><%=form.label :name, "Nom de l'artiste"%></b></td></tr> 
+                <tr><td colspan="5"><br><b><%=form.text_field :name%></b></td></tr> 
+                <tr><td colspan="5"><br><b><%=form.hidden_field :member_id, value: current_member.id%></b></td></tr> 
+                <tr><td colspan="5"><br><b><%=form.submit "Envoyer"%></b></td></tr> 
+                <%end%>

@@ -1,0 +1,29 @@
+    <table cellspacing="0" cellpadding="2" border="0" width="100%"><tbody>
+                                <form method="post" action="meetings.php?<%=@params1.to_query%>" onsubmit="post.disabled=true;">
+
+            <tr height="15">
+                
+                
+                <td colspan="3"><b>Choix de la ville (B/de <%=form_agemin%> à <%=form_agemax%> ans) :</b></td></tr>
+            
+            <tr><td colspan="3" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr>
+            
+           
+        <%@cities.each_slice(2).each do |c|%>
+            
+            <tr height="15" bgcolor="<%=cycle('#FFFFFF','#F0F1F6')%>">
+                <%c.each do |city|%>
+                <td width="50%">&nbsp;&nbsp;. <a href="meetings.php?<%=@params1.merge(actions: "ville", form_city: city.name).to_query%>"><%=city.name%></a> (<%=city.members.count%> personne(s))</td>
+                <%end%>
+            </tr>
+            <%end%>
+            
+            
+            <tr><td colspan="3" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr>
+            
+                                </form>
+                    <%=render partial: "formulaire", locals: @params1%>
+
+        
+        </tbody></table>
+

@@ -1,0 +1,28 @@
+<td>
+    
+    
+        <table>
+                 <%if current_member.sentmessages.length > 0%>
+
+            <tr>Messages envoyés</tr>
+        <%current_member.sentmessages.each do |dedicace|%>
+                                <tr>
+                        <%=render "members/mymember", member: dedicace.member, no: current_member.sentmessages.length%>
+                    <td height="15"><%=dedicace.content%></td>
+                                </tr>
+
+                <%end%>
+                <%end%>
+                 <%if current_member.messages.length > 0%>
+            <tr>Messages reçus</tr>
+
+                 <%current_member.messages.each do |dedicace|%>
+                                <tr>
+                        <%=render "members/mymember", member: dedicace.sender, no: current_member.messages.length%>
+                    <td height="15"><%=dedicace.content%></td>
+                                </tr>
+
+                <%end%>
+                <%end%>
+    </table>
+</td>

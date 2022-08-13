@@ -1,0 +1,19 @@
+<%=render "menumembres"%>
+
+<%case params[:actions]%>
+<%when "soon"%>
+<td> <h2>Articles à venir</h2>
+    <table>
+    <%@articles.each do |cat,articles|%>
+        <tr><th><%=cat%></th></tr>
+        <%articles.each do |article|%>
+        <tr><td><%=article.member.username%></td>
+            <td><%=link_to article.title, article.url%></td>
+            <td><%=link_to "lire", article.url%></td>
+        
+        </tr>
+        <%end%>
+    <%end%>
+    </table>
+</td>
+<%end%>

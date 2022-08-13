@@ -1,0 +1,133 @@
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CDW7JJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<div style="position:absolute; top:0px; left:0px;"><a href="/"><img src="images/skate.jpg" border="0"></a></div>
+<table width="100%" height="100%" cellspacing="0" cellpadding="0" border="0" style="height: 100%;" bgcolor="#FFFFFF">
+<tr><td valign="top" width="90%">
+
+<table width="100%" height="128" cellspacing="0" cellpadding="0" border="0">
+<tr><td background="images/lignes.gif" align="right" valign="top"><a href="/"><img src="images/logo.gif" width="221" height="50" border="0"></a><br>
+<img src="images/invisible.gif" height="5" width="1"><br><ins data-revive-zoneid="11" data-revive-id="19457f340be8d054289faaacff241635"></ins><img src="images/invisible.gif" height="1" width="5"></td></tr>
+</table>
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<form method="get" name="sformq" action="search.php" onsubmit="sval();">
+<tr><td width="100%">&nbsp;&nbsp;Non connect&eacute;. <a href="log.php">Connectez-vous</a> ou <a href="inscription.php">devenez membre</a> (gratuit).</td><script language="Javascript">
+function sval()
+{
+	if(document.sformq.search_type.options[document.sformq.search_type.selectedIndex].value=="site entier")
+	{document.sformq.target="_blank";}
+	else
+	{document.sformq.target="_self";document.sformq.post.disabled=true;}
+	return true;
+}
+</script><td NOWRAP>Recherche rapide :</td><td NOWRAP>&nbsp;&nbsp;<input type="text" name="q" value="" size="25">&nbsp;</td><td><select name="search_type"><option value="articles">articles</option><option value="membres">membres</option><option value="paroles">paroles</option><option value="forums">forums</option><option value="images">images</option><option value="aide en ligne">aide en ligne</option><option value="site entier">site entier</option></select></td><td NOWRAP>&nbsp;<input type="submit" name="post" value="go">&nbsp;</td></tr>
+</form>
+<tr><td colspan="5"><img src="images/invisible.gif" width="1" height="3"></td></tr>
+<tr><td bgcolor="#000000" colspan="5"><img src="images/invisible.gif" width="1" height="1"></td></tr>
+</table>
+<table width="100%" cellspacing="10" cellpadding="0" border="0">
+<tr><td width="100%" valign="top"><div align="justify"><h1>Editer vos informations</u></h1>
+            
+            <br><br><br>            
+            <table cellspacing="0" cellpadding="2" border="0" width="100%">
+                
+                <%=form_with url: "editinfos.php", scope: "",model: current_member, html: { onsubmit: "post.disabled=true;"} do |form|%>
+                    
+                    <tr height="15" bgcolor="#FFFFFF">
+                        <td>Nom d'utilisateur :</td><td><input type="text" name="form_login" value="<%=@member.username%>" size="50" maxlength="30"></td>
+                    
+                    
+                    </tr><tr height="15" bgcolor="#F0F1F6"><td>Mot de passe :</td><td><input type="password" name="form_mdp" value="" size="50" maxlength="50"></td></tr><tr><td colspan="2" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></table></td></tr><tr height="15" bgcolor="#FFFFFF"><td>Nom :</td><td>
+                            <input type="text" name="form_nom" value="<%=@member.lastname%>" size="50"></td></tr><tr height="15" bgcolor="#F0F1F6"><td>Pr&eacute;nom :</td><td>
+                            <input type="text" name="form_prenom" value="<%=@member.firstname%>" size="50"></td></tr><tr bgcolor="#F0F1F6"><td colspan="2" class="small"><i>Ils seront affich&eacute;s en signature sur vos articles.</i></td></tr><tr height="15" bgcolor="#FFFFFF"><td>E-mail :</td><td>
+                            
+                            <input type="text" name="form_email" value="<%=@member.email%>" size="50"></td></tr><tr bgcolor="#FFFFFF"><td colspan="2" class="small"><i>Vous devrez <b>imp&eacute;rativement</b> valider un code envoy&eacute; &agrave; cette adresse.</i></td></tr><tr bgcolor="#FFFFFF"><td colspan="2" class="small"><i><a href="http://www.laposte.net" target="_blank"><b>Cliquez-ici</b></a> pour vous cr&eacute;er une adresse e-mail gratuite.</i></td></tr><tr><td colspan="2" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></table></td></tr><tr height="15" bgcolor="#F0F1F6">
+                        <td>Sexe :&nbsp;</td><td>
+                            <%=form.radio_button "form_sexe", "m", id: "sexe_m"%>
+                            <%=label :form_sexe, "Homme", for: "sexe_m"%>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <%=form.radio_button "form_sexe", "f", id: "sexe_f"%>
+                            <%=label :form_sexe, "Femme", for: "sexe_f"%>
+                        
+                        </td></tr><tr height="15" bgcolor="#FFFFFF">
+                        
+                        <td>Date de naissance :&nbsp;</td>
+                        <td>
+<%=select_tag :form_naissance_jour, options_for_select((1..31).to_a.reverse, @member.dateofbirth.day), {include_blank: "jour"}%>                            
+<%=select_tag :form_naissance_mois, options_for_select((1..12).to_a.map{|h|[ l(("01-"+h.to_s+"-2022").to_date, format: :monthfield),h]}, @member.dateofbirth.month), {include_blank: "mois"}%>                            
+<%=select_tag :form_naissance_annee, options_for_select((1980..Date.today.year.to_i).to_a.reverse, @member.dateofbirth.year), {include_blank: "année"}%>                            
+                        </td>
+                    
+                    
+                    </tr><tr><td colspan="2" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></table></td></tr><tr height="15" bgcolor="#F0F1F6"><td>Ville :</td><td>
+                            
+                            <input type="text" name="form_ville" value="<%=@member.city.try(:name)%>" size="50" maxlength="50"></td></tr><tr height="15" bgcolor="#FFFFFF"><td>Pays :</td><td><input type="text" name="form_pays" value="<%=@member.country.try(:name)%>" size="50" maxlength="50"></td></tr><tr><td colspan="2" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></table></td></tr><tr height="15" bgcolor="#F0F1F6"><td NOWRAP>Recopiez le code ci-dessous :</td><td><input type="text" name="form_image_rand" size="50"></td></tr><tr height="15"><td></td><td><img src="images/rand.php?time=1643491505&"></td></tr><tr><td colspan="2" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></table></td></tr><tr bgcolor="#FFFFFF"><td align="center" colspan="2">
+                        
+                        
+                        
+                        </td></tr><tr height="15" bgcolor="#F0F1F6"><td></td><td><input type="hidden" name="poster" value="1"><input type="submit" name="post" value="Enregistrer"></td></tr>
+                
+                <%end%>
+            
+            </table></div></td><td valign="top">
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td bgcolor="#63632A"><img src="images/invisible.gif" width="220" height="1"></td></tr>
+<tr><td bgcolor="#EAEAC2" align="center"><div class="margin">
+<table width="100%" cellspacing="0" cellpadding="0" border="0" style="text-align: center;">
+<tr><td class="small"><a href="/" class="mr"><img src="images/articles.gif" border="0"><br>articles</a></td><td class="small"><a href="discut.php" class="mr"><img src="images/forums.gif" border="0"><br>forums</a></td><td class="small"><a href="members.php" style="line-height: 8px;" class="mr"><img src="images/membres.gif" border="0"><br>espace<br>membres</a></td></tr>
+</table>
+</div></td></tr>
+<tr><td bgcolor="#63632A"><img src="images/invisible.gif" width="1" height="1"></td></tr>
+</table>
+<img src="images/invisible.gif" width="1" height="10">
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td bgcolor="#63632A"><img src="images/invisible.gif" width="220" height="1"></td></tr>
+<tr><td bgcolor="#EAEAC2" align="center"><div class="margin">
+<table width="100%" cellspacing="0" cellpadding="0" border="0" style="text-align: center;">
+<tr><td valign="top" class="small"><a href="paroles.php" class="mr"><img src="images/paroles.gif" border="0"><br>paroles</a></td><td valign="top" class="small"><a href="imgserv.php" class="mr"><img src="images/images.gif" border="0"><br>images</a></td><td valign="top" class="small"><a href="meetings.php" class="mr"><img src="images/rencontres.gif" border="0"><br>rencontres</a></td></tr>
+</table>
+</div></td></tr>
+<tr><td bgcolor="#63632A"><img src="images/invisible.gif" width="1" height="1"></td></tr>
+</table>
+<img src="images/invisible.gif" width="1" height="10">
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td bgcolor="#63632A"><img src="images/invisible.gif" width="220" height="1"></td></tr>
+<tr><td bgcolor="#EAEAC2"><div class="margin">
+. <a href="ultra.php" onClick="window.open('ultra.php','_blank','width=770,height=480,scrollbars=1,toolbar=0,titlebar=0,status=0,resizable=1');document.location.href='ultrazone.php';return(false);" target="_blank" class="mr" style="font-size: 12px; font-weight: bold;">Devenir ultramembre</a><br>
+. <a href="help.php" class="mr">Aide en ligne (FAQ)</a><br>
+. <a href="link.php" class="mr">Faire un lien vers le site</a><br>
+. <a href="annonceurs.php" class="mr">Annoncez sur france-jeunes</a><br>
+. <a href="contact.php" class="mr">Contacts</a><br>
+</div></td></tr>
+<tr><td bgcolor="#63632A"><img src="images/invisible.gif" width="1" height="1"></td></tr>
+</table>
+<img src="images/invisible.gif" width="1" height="10">
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td bgcolor="#63632A"><img src="images/invisible.gif" width="220" height="1"></td></tr>
+<form method="post" action="lettre.php" onsubmit="post.disabled=true;">
+<tr><td bgcolor="#EAEAC2" class="mr"><div class="margin">
+<b>Recevoir la lettre d'information :</b><br><center>
+
+    <input type="text" name="form_email" value="Indiquez votre e-mail" onFocus="javascript:if(this.value=='Indiquez votre e-mail') this.value='';" size="20" style="width: 160px;"> <input type="submit" name="post" value="OK">
+</center></div></td></tr>
+</form>
+<tr><td bgcolor="#63632A"><img src="images/invisible.gif" width="1" height="1"></td></tr>
+</table><img src="images/invisible.gif" width="1" height="10">
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td bgcolor="#63632A"><img src="images/invisible.gif" width="220" height="1"></td></tr>
+<tr><td bgcolor="#EAEAC2" class="mr"><div class="margin"><b>Connect&eacute;s :</b><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>0</b> <a href="connectes.php" class="mr"><u>membres</u></a> et <b>205</b> visiteurs</div></td></tr>
+<tr><td bgcolor="#63632A"><img src="images/invisible.gif" width="1" height="1"></td></tr>
+</table>
+<img src="images/invisible.gif" width="1" height="5"><br />
+<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffrance.jeunes%2F&tabs&width=220&height=200&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=119174524765571" width="220" height="200" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+</td></tr>
+</table>
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td bgcolor="#000000"><img src="images/invisible.gif" width="760" height="1"></td></tr>
+<tr><td><table cellspacing="0" cellpadding="3" border="0" width="100%"><tr><td width="100%" valign="top"><a href="go.php?tid=127" target="_blank">tubededentifrice.com</a>, <a href="partenaires.php">...</a></td><td align="right" valign="top" NOWRAP><i>&nbsp;&nbsp;&nbsp;&nbsp;<b>CNIL: 752143.</b></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/inscription.php?form_large_screen=1" style="text-decoration: none;">&nbsp;|]&nbsp;</a><a href="/inscription.php?form_font_size=12" style="text-decoration: none;">&nbsp;&#9650;&nbsp;</a></td></tr></table></td></tr>
+</table>
+</td><td bgcolor="#E1EEE1" background="images/ombre.gif"><img src="images/invisible.gif" width="9" height="1" border="0"></td><td bgcolor="#E1EEE1" background="images/quadri.gif" width="100%"></td></tr>
+</table>
+<ins data-revive-zoneid="12" data-revive-id="19457f340be8d054289faaacff241635"></ins>

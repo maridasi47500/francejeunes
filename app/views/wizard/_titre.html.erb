@@ -1,0 +1,97 @@
+<td width="100%" valign="top">
+        <div align="justify"><script language="javascript">
+function ChangeUrl(formulaire)
+{location.href="publish_wizard.php?&actions="+formulaire.actions.option[formulaire.actions.selectedIndex].value+"&tempid=01643494043";}
+
+function change_image_texte(image)
+{
+	for(i=1;i<=3;i++)
+	{writit("","image_texte_"+i);}
+	writit("Cliquez sur une image pour l'associer &agrave; ce paragraphe.","image_texte_"+image);
+	document.formulaire.current_paragraphe.value=image;
+}
+
+function change_image(image)
+{
+	writit('<img src="tmpub/01643494043-'+image+'.img?1643494043" class="images">',"image_"+document.formulaire.current_paragraphe.value);
+	if(document.formulaire.current_paragraphe.value!=1)
+	{writit("<a href=\"#null\" onclick=\"javascript:supprimer_image("+document.formulaire.current_paragraphe.value+");\">Supprimer</a>","image_supprimer_"+document.formulaire.current_paragraphe.value);}
+	eval("document.formulaire.image_paragraphe_"+document.formulaire.current_paragraphe.value+".value=image;");
+}
+
+function supprimer_image(paragraphe)
+{
+	writit("","image_"+paragraphe);
+	writit("","image_supprimer_"+paragraphe);
+	eval("document.formulaire.image_paragraphe_"+paragraphe+".value='';");
+}
+</script>
+
+<table width="100%">
+<form method="get" action="publish_wizard.php">
+<tr><td NOWRAP><b>Aller &agrave; :</b>&nbsp;</td><td>
+        
+<%=select_tag :actions, options_for_select([["Démarrage de l'assistant",""],["Choix du titre et de la rubrique","titre"],["Envoi des images","images"],["Création de la description","description"],["Création des paragraphes","corps"],["Prévisualisation","end"]], params[:actions])%>
+    
+    
+    </td><td width="100%">&nbsp;<input type="hidden" name="tempid" value="01643494043"><input type="submit" value="Go"></td>
+
+</tr>
+
+
+
+
+</form>
+    
+    
+    <tr>
+        
+        
+        <td colspan="3" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></table></td></tr>
+
+
+</table>
+
+
+<br>
+Choisissez un titre et une rubrique.
+<table cellspacing="0" cellpadding="2" border="0" width="100%">
+    
+    <tr height="15" bgcolor="#FFFFFF"><td colspan="2" align="center">
+            
+    
+    <form method="post" name="formulaire" action="/publish_wizard.php?actions=images" onSubmit="">
+        
+        
+        <tr bgcolor="#F0F1F6"><td>Titre :</td><td><input type="text" name="title" value="" size="40"></td></tr>
+        <tr bgcolor="#FFFFFF"><td>Rubrique :</td><td><%=select_tag :categoryid, options_for_select(Category.fav.collect{ |x| [x.name, x.id]}), {include_blank: true}%>
+            </td>
+            
+            
+        
+        </tr>
+        <tr bgcolor="#FFFFFF">
+<td><input type="hidden" name="memberid" value="<%=current_member.id%>"></td>            
+            
+            
+            <td><input type="hidden" name="actions" value="images"></td>
+            <td><input type="submit" name="post" value="Suivant"> 
+                
+                </td>
+        
+        </tr>
+    </form>
+            
+            <script>document.formulaire.login.focus();</script>
+    <tr><td colspan="2" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></table></td></tr>
+    <tr height="15" bgcolor="#F0F1F6"><td colspan="2" align="center"><a href="inscription.php">Devenir membre (30 secondes et gratuit)</a> &nbsp;&nbsp; <a href="recover.php">Mot de passe perdu ?</a></td>
+    
+    </tr>
+
+
+</table>
+        
+        
+        </div>
+    
+    </td>

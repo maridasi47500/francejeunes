@@ -1,0 +1,6 @@
+   
+<%@color=cycle('#F0F1F6','#FFFFFF', name: "color1") -%>
+<tr bgcolor="<%=@color -%>"><td><h2><%= cycle(*no, name: "numbers") -%>.&nbsp; <a href="/lire-<%=article.title%>-<%=article.id%>.htm"><%=article.title%></a></h2></td><td><%=article.countvue%> lecture(s)</td><td></td>
+                                </tr>
+                                <tr bgcolor="<%=@color%>"><td colspan="3" class="small"><i><%=article.subtitle%></i></td>
+                                </tr>

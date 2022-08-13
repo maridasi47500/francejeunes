@@ -1,0 +1,43 @@
+
+
+    <%=form_with model: song, url: sendasong_path do |form|%>
+<%case params[:actions]%>
+<%when "video"%>
+<tr>
+<td>
+   insérer le lien youtube de <%=song.title%> par <%=song.artist.name%> 
+</td>
+<td>
+   <%=form.text_field :youtubelink_id, style: "width:300px"%>
+</td>
+</tr>
+<td>
+       <%=form.submit t('my.button.youtube')%>
+
+</td>
+
+<%else%>
+<tr>
+<td>
+   Modifier les paroles de <%=song.title%> par <%=song.artist.name%> 
+</td>
+<td>
+   <%=form.text_area :content, style: "width:300px;height:1000px;"%>
+</td>
+</tr>
+<td>
+       <%=form.submit t('my.button.lyrics')%>
+
+</td>
+
+<%end%>
+<tr>
+<td>
+    <%=hidden_field_tag :id, song.id%>
+    <%=form.hidden_field :contentmember_id, value: current_member.id%>
+    <%=form.hidden_field :videomember_id, value: current_member.id%>
+</td>
+</tr>
+<%end%>
+
+

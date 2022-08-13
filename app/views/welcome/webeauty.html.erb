@@ -1,0 +1,132 @@
+<td width="100%" valign="top"><div align="justify"><script language="javascript">
+function ChangeUrl(formulaire)
+{location.href="webeauty.php?&actions="+formulaire.action.options[formulaire.action.selectedIndex].value;}
+</script>
+
+<table width="100%">
+
+<tbody><tr><td nowrap=""><b>Aller à :</b>&nbsp;</td>
+            <form method="get" action="webeauty.php">
+                <td>
+            
+<%=select_tag :actions, options_for_select([['Noter les membres', ''], ['Apparaître dans la rubrique', 'select'], ["Statistiques", "stats"], ['Notes données', 'sent'], ["Notes reçues", "received"]], params[:actions]), {onchange: "ChangeUrl(this.form)"}%>
+</td><td width="100%">&nbsp;<input type="submit" value="Go"></td>
+        </form>
+        </tr>
+        
+        <tr><td colspan="3" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr></tbody></table><br>
+
+<center>
+       <style>
+            .mymembers > * {
+                width:10%;
+                text-align:center;
+                vertical-align: bottom;
+                border-bottom: 1px solid black;
+            }
+        </style>
+    
+    <%case params[:actions]%>
+    <%when "stats"%>
+        <h2>Statistiques</h2>
+    <table>
+    <%Member.allstat.each do |g|%>
+     
+            <tr class="mymembers">
+                    <td>
+                  <%=Member.find(g.memberid).username%>
+                        <br>
+                  <img src="/photos/<%=g.memberid%>.img"/>
+                </td>
+                    <td>
+                        1<div style="width: 10px;background:red;height: <%=g.note1%>px;"></div>
+                </td>
+                    <td>
+                        <div style="width: 10px;background:red;height: <%=g.note2%>px;"></div>
+                </td>
+                    <td>
+                        <div style="width: 10px;background:red;height: <%=g.note3%>px;"></div>
+                </td>
+                    <td>
+                        <div style="width: 10px;background:red;height: <%=g.note4%>px;"></div>
+                </td>
+                    <td>
+                        <div style="width: 10px;background:red;height: <%=g.note5%>px;"></div>
+                </td>
+                    <td>
+                        <div style="width: 10px;background:red;height: <%=g.note6%>px;"></div>
+                </td>
+                    <td>
+                        <div style="width: 10px;background:red;height: <%=g.note7%>px;"></div>
+                </td>
+                    <td>
+                        <div style="width: 10px;background:red;height: <%=g.note8%>px;"></div>
+                </td>
+                    <td>
+                        <div style="width: 10px;background:red;height: <%=g.note9%>px;"></div>
+                </td>
+                    <td>
+                      10  <div style="width: 10px;background:red;height: <%=g.note10%>px;"></div>
+                </td>
+            </tr>
+            
+            <%end%>
+            <tr class="mymembers"><th>member</th>
+
+
+                     <th>
+1 - Beuark, amenez moi la bassine !
+                </th> 
+                   <th>
+2 - Si je te croise, je change de trottoir
+                </th>  
+                      <th>
+3 - Bof bof
+                </th>   
+                <th>
+4 - Pas terrible
+                </th> 
+                  <th>
+5 - Moyen
+                </th>  
+                 <th>
+6 - Y a mieux
+                </th>
+                 <th>
+7 - Pô trop mal
+                </th>  
+                      <th>
+8 - Pas mal... Vraiment !
+                </th>   
+                   <th>
+9 - Super top quand même !
+                </th>    
+                 <th>
+                  10 - WAAAaaaOOOOwwwwwww
+                </th>    
+            </tr>
+    
+    </table>
+    <%when "sent"%>
+                <h2>Notes données</h2>
+
+  <%=render "notesbeauty", notes: current_member.notesdonnees.group_by{|h|h.memberid}%>
+    <%when "received"%>
+                <h2>Notes reçues</h2>
+
+  <%=render "notesbeauty", notes: current_member.notesrecues.group_by{|h|h.userid}%>
+    <%when "select"%>
+    <h2>Apparaître dans la rubrique</h2>
+    <p>Pour apparaître dans la rubrique clique sur le lien.</p>
+    <%=render "notememberself", member: current_member%>
+
+    <%else%>
+    <%if @member%>
+    <%=render "notemember", member: @member%>
+    <%else%>
+    <p>Aucun moussaillon n'apparaît dans la rubrique pour le moment.</p>
+    <%end%>
+    <%end%>
+
+
+</center></div></td>

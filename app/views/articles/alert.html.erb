@@ -1,0 +1,34 @@
+<h2>Alertes</h2>
+<%=form_with scope: "", url: updatememb_path, model: current_member do |form|%>
+<%=form.fields_for :alert, (current_member.alert||Alert.new) do |f|%>
+    <div>
+  <%=f.label :musique%>
+  <%=f.check_box :musique%>
+</div>
+    <div>
+  <%=f.label :forum, "Messages de forums"%>
+  <%=f.check_box :forum%>
+</div>
+    <div>
+  <%=f.label :image, "Images"%>
+  <%=f.check_box :image%>
+    <div>
+  <%=f.label :rencontres%>
+  <%=f.check_box :rencontres%>
+</div>
+    <div>
+  <%=f.label :article, "Articles"%>
+  <%=f.check_box :article%>
+</div>
+    <div>
+  <%=f.label :content, "Mots pour les alertes (séparés par des virgules)"%>
+  <%=f.text_area :content%>
+</div>
+
+
+<%end%>
+    <div>
+  <%=form.submit "enregistrer"%>
+</div>
+
+<%end%>

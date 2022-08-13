@@ -1,0 +1,2 @@
+                <tr bgcolor="<%=cycle('#F0F1F6','#FFFFFF') -%>"><td><a href="paroles.php?artiste=<%=song.artist.name.gsub(' ','+')%>"><%=song.artist.name%></a></td><td><a href="paroles-<%=song.artist.name.parameterize.gsub('-','.')%>-<%=song.title.parameterize.gsub('-','.')%>-<%=song.id%>.htm"><b><%=song.title%></b></a></td><td></td><td></td><td nowrap=""><%=song.vuesongs.count%> aff.</td></tr>
+

@@ -1,0 +1,28 @@
+  <%=form_with model: article, scope: "",  url: newarticle_path do |form|%>
+    <div>
+        <%=form.label :title, "Titre"%>
+        <%=form.text_field :title%>
+    </div>
+    <div>
+        <%=form.label :subtitle, "Description"%>
+        <%=form.text_area :subtitle%>
+    </div>    <div>
+        <%=form.label :categoryid, "Rubrique"%>
+
+      <%=select_tag :categoryid, options_for_select(Category.fav.collect{ |x| [x.name, x.id]}, article.category_id), {include_blank: true}%>
+ </div>  
+    <div>
+        <%=form.label :content, "Contenu"%>
+        <%=form.text_area :content%>
+    </div>
+    <div>
+        <%=form.label :image%>
+        <%=form.file_field :image%>
+    </div>
+    <div>
+            <%=form.submit "Envoyer"%>
+
+    </div>
+    <%=form.hidden_field :memberid, value: current_member.id%>
+    <%=form.hidden_field :noprivate%>
+  <%end%>

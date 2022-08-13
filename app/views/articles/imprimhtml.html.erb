@@ -1,0 +1,17 @@
+<html>
+    <head>
+    <title><%=@article ? @article.title : ""%></title>
+    </head>
+    <body>
+    <%case params[:type]%>
+    <%when "article"%>
+        <h1><%=@article.title%></h1>
+        <h3><%=@article.subtitle%></h3>
+        <%@article.paragraphes.each do |h|%>
+        <p><%=h.content%></p>
+        <%end%>
+    <%end%>
+    </body>
+    
+</html>
+

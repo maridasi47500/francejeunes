@@ -1,0 +1,71 @@
+
+
+<table width="100%" cellspacing="10" cellpadding="0" border="0">
+<tr><td width="100%" valign="top"><div align="justify"><script language="javascript">
+function ChangeUrl(formulaire)
+{location.href="discut.php?&type_forum=&tid="+formulaire.tid.options[formulaire.tid.selectedIndex].value;}
+</script>
+
+<table width="100%">
+<form method="get" action="discut.php">
+<tr><td NOWRAP><b>Aller &agrave; :</b>&nbsp;</td><td>
+        
+<%=render "selectforum"%>        
+    
+    </td><td width="100%">&nbsp;<input type="hidden" name="type_forum" value=""><input type="submit" value="Go"></td></tr></form><tr><td colspan="3" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></table></td></tr></table><br>
+
+<table cellspacing="0" cellpadding="2" border="0" width="100%"><tr><td colspan="4"><a href="discut.php?type_forum=&tid=<%=params[:tid]%>"><b>Messages</b></a> | <a href="discut.php?type_forum=&tid=<%=params[:tid]%>#poster"><b>Nouvelle branche de discussion</b></a> | <a href="discut.php?type_forum=&tid=<%=params[:tid]%>&actions=search"><b>Rechercher</b></a></td></tr>
+    <%if params[:actions] =="search"%>
+        <%=render "forums/searchform"%>
+        <%end%>
+    
+    
+    <tr><td colspan="4" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></table></td></tr><script language="javascript">
+function quote(nom)
+{
+	document.formulaire.form_message.value+=nom+" ";
+	document.formulaire.form_message.focus();
+}
+</script><tr height="15" bgcolor="#FFFFFF"><td><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Titre</b></td><td><b>Dernier message</b></td><td><b>Par</b></td><td><b>R&eacute;ponses</b></td></tr><tr><td colspan="4" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></table></td></tr>
+
+<%if @forums.length > 0%>
+<%=render collection: @forums, partial: "forums/forumlist", as: :forum%>
+
+<%=render "pagesforum"%>
+<%elsif params[:actions]=="search"%>
+<tr bgcolor="#F0F1F6" height="15"><td colspan="4">Aucun message ne correspond à votre recherche.</td></tr>
+
+<%else%>
+
+<tr bgcolor="#F0F1F6" height="15"><td colspan="4">Aucun message n'a encore été posté dans ce forum.</td></tr>
+<%end%>
+        
+
+<tr><td colspan="4" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%">
+            <tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></table></td></tr>
+
+<%if member_signed_in?%>
+<%=render "ecrireunmessage"%>
+
+<%else%>
+<%=render "connexionforum"%>
+
+<%end%>
+
+
+
+</table></div></td>
+
+    <%=render "casedetableaumenudroite"%>
+
+
+
+</tr>
+</table>
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td bgcolor="#000000"><img src="images/invisible.gif" width="760" height="1"></td></tr>
+<tr><td><table cellspacing="0" cellpadding="3" border="0" width="100%"><tr><td width="100%" valign="top"><a href="go.php?tid=127" target="_blank">tubededentifrice.com</a>, <a href="partenaires.php">...</a></td><td align="right" valign="top" NOWRAP><i>&nbsp;&nbsp;&nbsp;&nbsp;<b>CNIL: 752143.</b></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/discut.php?tid=<%=params[:tid]%>&form_large_screen=1" style="text-decoration: none;">&nbsp;|]&nbsp;</a><a href="/discut.php?tid=<%=params[:tid]%>&form_font_size=12" style="text-decoration: none;">&nbsp;&#9650;&nbsp;</a></td></tr></table></td></tr>
+</table>
+</td><td bgcolor="#E1EEE1" background="images/ombre.gif"><img src="images/invisible.gif" width="9" height="1" border="0"></td><td bgcolor="#E1EEE1" background="images/quadri.gif" width="100%"></td></tr>
+</table>

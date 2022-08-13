@@ -1,0 +1,45 @@
+<td>
+    
+    <%=@forum.title%>
+    
+    <br>
+    
+    <%=simple_format(@forum.content)%>
+    <br>
+        <%=link_to "éditer le titre/contenu du forum privé", editforumprive_path(tid: @forum.id)%>
+
+    <br>
+        <table>
+      <%@forum.privatemessages.each do |y|%>
+                <tr>
+                    <td><%=y.member.username%> dit:</td>
+                                        <td><%=y.content%>  </td>
+
+            </tr>
+            <%end%>
+    </table>
+    <br>
+    
+        
+    <%=form_with scope: "",model: @forum, url: newprivateforum2_path(tid: @forum.id) do |firm|%>
+    <%=firm.fields_for :privatemessages, Privatemessage.new do |form|%>
+        <%=form.label :title, "titre"%>
+    <%=form.text_area :title, value: "Re: "+@forum.title.to_s%>
+
+    
+        <br><br>
+
+    <%=form.label :content, "contenu"%>
+    <%=form.text_area :content%>
+    <%=form.hidden_field :member_id, value: current_member.id%>
+
+    <br><br>
+    <%end%>
+    <%=firm.submit "Ajouter un message"%>
+    
+    <%end%>
+    <br>
+    
+            <%=link_to "revenir à tous les forums privés", privateforum_path%>
+
+</td>

@@ -1,0 +1,9 @@
+ <select name="actions" onchange="ChangeUrl(this.form)">
+<option value="" selected="">Lire les paroles</option><option value="send">Envoyer des paroles</option><option value="delete">Faire retirer des paroles</option><option value="new">Nouveaux textes</option><option value="new_ar">Nouveaux artistes</option><option value="bestof">Textes les plus vus</option><option value="bestof_ar">Artistes les plus vus</option><option value="succes">Succès du moment</option>
+            </select>
+<script language="javascript">
+function ChangeUrl(formulaire)
+{
+  console.log(formulaire);
+    location.href="paroles_div.php?&actions="+formulaire.actions.options[formulaire.actions.selectedIndex].value;}
+</script>

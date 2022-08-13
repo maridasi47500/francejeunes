@@ -1,0 +1,58 @@
+<td width="100%" valign="top"><div align="justify"><script language="javascript">
+function ChangeUrl(formulaire)
+{location.href="discut.php?&type_forum=&tid="+formulaire.tid.options[formulaire.tid.selectedIndex].value;}
+</script>
+
+<table width="100%">
+<form method="get" action="discut.php">
+<tbody><tr><td nowrap=""><b>Aller à :</b>&nbsp;</td><td>
+            
+<%=render "selectforum"%>        
+        
+        
+        </td><td width="100%">&nbsp;<input type="hidden" name="type_forum" value=""><input type="submit" value="Go"></td></tr>
+    
+    <tr><td colspan="3" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr></tbody></table><br>
+
+<table cellspacing="0" cellpadding="2" border="0" width="100%"><tbody><tr><td colspan="4"><a href="discut.php?type_forum=&amp;tid=<%=params[:tid]%>"><b>Messages</b></a> | <a href="discut.php?type_forum=&amp;tid=<%=params[:tid]%>#poster"><b>Nouvelle branche de discussion</b></a> | <a href="#poster"><b>Répondre</b></a> | <a href="discut.php?type_forum=&amp;tid=<%=params[:tid]%>&amp;actions=search"><b>Rechercher</b></a></td></tr>
+        
+        
+        
+        <tr><td colspan="4" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr><script language="javascript">
+function quote(nom)
+{
+	document.formulaire.form_message.value+=nom+" ";
+	document.formulaire.form_message.focus();
+}
+</script>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+                <%=render "forums/forumshow", forum: @forum%>
+                <%=render partial: "forums/forummessage", collection: @forum.forumcommentaires, as: :forummessage%>
+            
+            
+
+<tr><td colspan="4" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr>
+
+
+<%if member_signed_in?%>
+<%=render "forums/ecrireunereponse"%>
+
+<%else%>
+<%=render "forums/connexionforum"%>
+
+<%end%>
+
+
+
+</tbody></table></div></td>

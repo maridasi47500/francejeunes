@@ -1,0 +1,14 @@
+    <table cellspacing="0" cellpadding="2" border="0" width="100%"><tbody>
+            
+                                <form method="post" action="meetings.php?<%=@params1.to_query%>" onsubmit="post.disabled=true;">
+
+            <tr height="15"><td colspan="3"><b>Choix du sexe (B<%if defined?(form_agemin) && form_agemax%>/de <%=form_agemin%> à <%=form_agemax%> ans<%end%>) :</b></td></tr><tr><td colspan="3" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr><tr bgcolor="#F0F1F6" height="15"><td width="50%">&nbsp;&nbsp;. <a href="meetings.php?form_sexe=m&amp;form_couple=&amp;form_departement=&amp;form_pays=B&amp;form_ville=&amp;form_agemin=15&amp;form_agemax=26&amp;form_aime=&amp;form_avatar_perso=&amp;form_bahut=0&amp;action=pays">Hommes</a> (<%=Member.nbhommes%> personne(s))</td><td width="50%" colspan="2">. <a href="meetings.php?form_sexe=f&amp;form_couple=&amp;form_departement=&amp;form_pays=B&amp;form_ville=&amp;form_agemin=15&amp;form_agemax=26&amp;form_aime=&amp;form_avatar_perso=&amp;form_bahut=0&amp;action=pays">Femmes</a> (<%=Member.nbfemmes%> personne(s))</td></tr><tr><td colspan="3" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr>
+            
+                                </form>
+                    <%=render partial: "formulaire", locals: @params1%>
+
+        
+        
+        
+        </tbody></table>
+

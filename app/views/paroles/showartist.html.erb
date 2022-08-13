@@ -1,0 +1,29 @@
+<td width="100%" valign="top"><div align="justify"><script language="javascript">
+function ChangeUrl(formulaire)
+{location.href="paroles_div.php?&action="+formulaire.action.options[formulaire.action.selectedIndex].value;}
+</script>
+
+<table width="100%">
+<form method="get" action="paroles_div.php"></form>
+<tbody><tr><td nowrap=""><b>Aller à :</b>&nbsp;</td><td>
+            
+            <%=render "selectartist"%>
+        
+        
+        
+        </td><td width="100%">&nbsp;<input type="submit" value="Go"></td></tr><tr><td colspan="3" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr></tbody></table>
+<%=render "alphabetartistsong"%>
+
+
+
+
+<h1>Textes de <%=@artist.name%></h1>
+
+<table cellspacing="0" cellpadding="2" border="0" width="100%">
+    <tbody>
+                <%=render partial: "song2", collection: @artist.songs, as: :song%>
+    
+    
+    </tbody></table><center><br><iframe scrolling="no" frameborder="0" width="468" height="336" src="https://rcm-fr.amazon.fr/e/cm?t=franjeuntoutl-21&amp;l=st1&amp;search=John+Denver&amp;mode=music-fr&amp;p=16&amp;o=8&amp;f=ifr&amp;lt1=_blank"></iframe><script type="text/javascript">GA_googleFillSlot("FJ_468x60_LYRICS");</script></center><script type="text/javascript">$('section#paroles').css('color','#ffffff').css('font-size','1px');</script></div></td>
+
+

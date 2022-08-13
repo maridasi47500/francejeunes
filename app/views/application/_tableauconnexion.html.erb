@@ -1,0 +1,24 @@
+<form method="get" name="sformq" action="search.php" onsubmit="sval();">
+<tr><td width="100%">
+        
+    <%if member_signed_in?%>    
+        Connecté en tant que <%=current_member.username%>. 
+        <%else%>
+        &nbsp;&nbsp;Non connect&eacute;. <a href="log.php">Connectez-vous</a> ou <a href="inscription.php">devenez membre</a> (gratuit).
+    <%end%>
+    </td><script language="Javascript">
+function sval()
+{
+	if(document.sformq.search_type.options[document.sformq.search_type.selectedIndex].value=="site entier")
+	{document.sformq.target="_blank";}
+	else
+	{document.sformq.target="_self";document.sformq.post.disabled=true;}
+	return true;
+}
+</script><td NOWRAP>Recherche rapide :</td><td NOWRAP>&nbsp;&nbsp;<input type="text" name="q" value="" size="25">&nbsp;</td>
+
+<td>
+    <%=select_tag :search_type, options_for_select(["articles","membres","paroles","forums","images","aide en ligne","site entier"], params[:search_type])%>
+</td>
+<td NOWRAP>&nbsp;<input type="submit" name="post" value="go">&nbsp;</td></tr>
+</form>

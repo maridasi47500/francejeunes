@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Bienvenue sur France-jeunes.com, <%= @user.fullname %></h1>
+    <p>
+      Vous avez payé avec succès et êtes devenu un ultramembre ,
+      votre pseudonyme est <%= @user.username %>. <br>
+    </p>
+    
+    <p>Voici vos codes d'accès :</p>
+    <ul>
+    <%@payment.accesscodes.each do |code|%>
+    
+    <li>
+      <%=code.code%>
+    </li>
+    <% end%>
+    </ul>
+    <p>
+      Pour se connecter au site, il vous suffit de cliquer sur ce lien <%= link_to @url, @url %>.
+    </p>
+    <p>Merci pour votre participation et passez une bonne journée !</p>
+  </body>
+</html>

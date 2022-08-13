@@ -1,0 +1,84 @@
+ <table>
+       <%@i=0%>
+    <%notes.each do |memberid, k|%>
+                 <tr class="mymembers">
+                    <td>
+                        <%@i=@i+1%>
+                  <%=  @i%>. <%=Member.find(memberid).username%>
+                        <br>
+                  <img src="/photos/<%=memberid%>.img"/>
+                </td>
+                 </tr>
+                <%k.each do |g|%>
+            <tr class="mymembers">
+                </td>
+                    <td>
+                        <%=g.note1 > 0 ? 'X' : nil%>
+                </td>
+                    <td>
+                        <%=g.note2 > 0 ? 'X' : nil%>
+                </td>
+                    <td>
+                        <%=g.note3 > 0 ? 'X' : nil%>
+                </td>
+                    <td>
+                        <%=g.note4 > 0 ? 'X' : nil%>
+                </td>
+                    <td>
+                        <%=g.note5 > 0 ? 'X' : nil%>
+                </td>
+                    <td>
+                        <%=g.note5 > 0 ? 'X' : nil%>
+                </td>
+                    <td>
+                        <%=g.note7 > 0 ? 'X' : nil%>
+                </td>
+                    <td>
+                        <%=g.note8 > 0 ? 'X' : nil%>
+                </td>
+                    <td>
+                        <%=g.note9 > 0 ? 'X' : nil%>
+                </td>
+                    <td>
+                        <%=g.note10 > 0 ? 'X' : nil%>
+                </td>
+            </tr>
+            
+            <%end%>
+            <%end%>
+            <tr class="mymembers"><th>member</th>
+
+
+                     <th>
+1 - Beuark, amenez moi la bassine !
+                </th> 
+                   <th>
+2 - Si je te croise, je change de trottoir
+                </th>  
+                      <th>
+3 - Bof bof
+                </th>   
+                <th>
+4 - Pas terrible
+                </th> 
+                  <th>
+5 - Moyen
+                </th>  
+                 <th>
+6 - Y a mieux
+                </th>
+                 <th>
+7 - Pô trop mal
+                </th>  
+                      <th>
+8 - Pas mal... Vraiment !
+                </th>   
+                   <th>
+9 - Super top quand même !
+                </th>    
+                 <th>
+                  10 - WAAAaaaOOOOwwwwwww
+                </th>    
+            </tr>
+    
+    </table>

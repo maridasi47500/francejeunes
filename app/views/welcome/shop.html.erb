@@ -1,0 +1,23 @@
+<td width="100%" valign="top"><div align="justify"><script language="javascript">
+function ChangeUrl(formulaire)
+{location.href="shop.php?&action="+formulaire.action.options[formulaire.action.selectedIndex].value;}
+</script>
+
+<table width="100%">
+<form method="get" action="shop.php"></form>
+<tbody><tr><td nowrap=""><b>Aller à :</b>&nbsp;</td><td><select name="action" onchange="ChangeUrl(this.form)">
+<option value="" selected="">Passer une commande</option></select></td><td width="100%">&nbsp;<input type="submit" value="Go"></td></tr><tr><td colspan="3" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr></tbody></table><br>
+
+<table cellspacing="0" cellpadding="2" border="0" width="100%"><tbody><tr height="15" bgcolor="#FFFFFF"><td><b></b></td><td><b>Produit</b></td><td><b>Prix</b></td><td><b>Disponible sous</b></td></tr>
+        
+        
+        
+        <tr><td colspan="4" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr>
+        <%if @products.length > 0%>
+        
+<%=render collection: @products, partial: "welcome/product", as: :product%>    
+    
+    <%else%>
+        <tr><td>Aucun cadeau pour le moment.</td></tr>
+        <%end%>
+    </tbody></table></div></td>

@@ -1,0 +1,8 @@
+<%=form_with scope: "", model: song, url: new_song_path do |form|%>
+                <tr><td colspan="5"><br><b><%=form.label :title, "Titre"%></b></td></tr> 
+                <tr><td colspan="5"><br><b><%=form.text_field :title, required: true%></b></td></tr> 
+                <tr><td colspan="5"><br><b><%=form.label :nameartist, "Artiste"%></b></td></tr> 
+                <tr><td colspan="5"><br><b><%=form.select :nameartist, options_for_select(Artist.all.order(:name).collect(&:name)), {required: true, include_blank: "Choisir un artiste"}%></b></td></tr> 
+                <tr><td colspan="5"><br><b><%=form.hidden_field :member_id, value: current_member.id%></b></td></tr> 
+                <tr><td colspan="5"><br><b><%=form.submit "Envoyer"%></b></td></tr> 
+                <%end%>

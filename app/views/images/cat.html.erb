@@ -1,0 +1,38 @@
+<td width="100%" valign="top"><div align="justify"><script language="javascript">
+function ChangeUrl(formulaire)
+{location.href="imgserv.php?&tid="+formulaire.tid.options[formulaire.tid.selectedIndex].value+"&rubrique="+formulaire.tid.options[formulaire.tid.selectedIndex].value;}
+function ChangeUrl2(formulaire)
+{location.href="imgserv.php?&tid=2&tid2="+formulaire.tid2.options[formulaire.tid2.selectedIndex].value+"&rubrique="+formulaire.tid2.options[formulaire.tid2.selectedIndex].value;}
+</script>
+<table width="100%"><form method="get" action="imgserv.php">
+        
+<tbody><tr><td nowrap=""><b>Rubrique :</b>&nbsp;</td><td>
+            
+            
+<%=select_tag :tid, options_for_select(@rubriques.collect{|h|[h.name, h.id]}, @rubrique.try(:id)), {onchange: "ChangeUrl(this.form)", include_blank: "Choix de la rubrique"}%>            
+        </td>
+        <td>
+            
+     <%=select_tag :tid2, options_for_select(@sousrubriques.collect{|h|[h.name, h.id]},@sousrubrique.try(:id)), {onchange: "ChangeUrl2(this.form)", include_blank: "Choix de la sous-rubrique"}%>            
+       
+        
+        
+        </td><td width="100%">&nbsp;<input type="submit" value="Go"></td></tr><tr><td colspan="4" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr></tbody>
+
+</form>
+</table>
+
+<br><h1><%=@rubrique.name%></h1><br>
+
+
+<table cellspacing="0" cellpadding="2" border="0" width="100%"><tbody>
+        <%@sousrubriquesall.each do |sousrub|%>
+        <tr>
+            <%sousrub.each do |rub|%>
+<td width="25%" align="left" valign="top"><a href="<%=rub.myurl%>"><img src="/an_ruimgs/<%=rub.image%>" width="50" height="50" align="left" class="images"><h2><%=rub.name%></h2></a>
+</td>
+<%end%>
+
+        </tr>
+        <%end%>
+    </tbody></table></div></td>

@@ -1,0 +1,19 @@
+  <table cellspacing="0" cellpadding="2" border="0" width="100%"><tbody>
+                              <form method="post" action="meetings.php?<%=@params1.to_query%>" onsubmit="post.disabled=true;">
+
+            <tr height="15"><td colspan="3"><b>Résultats de la recherche (B<%if form_agemin && form_agemax%>/de <%=form_agemin%> à <%=form_agemax%> ans<%end%>) :</b></td></tr>
+            <tr><td colspan="3" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td>
+            </tr>
+            <%if !@members || @members.length == 0%>
+            <tr height="15"><td colspan="3">Aucun membre ne correspond à votre recherche.</td></tr>
+            
+            <tr><td colspan="3" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td>
+            </tr>
+            <%else%>
+            <%=render partial: "resultsearch", as: :member, collection: @members%>
+            <%end%>
+                              </form>
+                    <%=render partial: "formulaire", locals: @params1%>
+
+      
+      </tbody></table>

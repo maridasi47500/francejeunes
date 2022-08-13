@@ -1,0 +1,11 @@
+<form method="get" action="discut.php" onsubmit="post.disabled=true;">
+<tr bgcolor="#F0F1F6" height="15"><td colspan="4" align="right">Rechercher ce texte dans 
+        
+        
+        <%=select_tag "form_where", options_for_select([["ce forum",params[:tid]], ['tous les forums',"0"]], params[:form_where])%> : <input type="text" name="form_q" value="<%=params[:form_q]%>" size="25"></td></tr>
+
+
+
+<tr bgcolor="#F0F1F6" height="15"><td colspan="4" align="right"><b>et</b> dont l'auteur est (ID ou pseudo) : <input type="text" name="form_q2" value="<%=params[:form_q2]%>" size="25"> <input type="hidden" name="type_forum" value=""><input type="hidden" name="tid" value="<%=params[:tid]%>"><input type="hidden" name="actions" value="search"><input type="submit" name="post" value="Rechercher"></td></tr>
+
+</form>

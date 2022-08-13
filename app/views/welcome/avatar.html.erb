@@ -1,0 +1,11 @@
+<td>
+    <%=form_with url: updatemember_path,scope:"", model: current_member do |kk|%>
+    <div>
+      <%=kk.label :image, "Image de profil"%>
+      <%=kk.file_field :image%>
+    </div>
+    <div>
+      <%=kk.submit "envoyer"%>
+    </div>
+    <%end%>
+</td>

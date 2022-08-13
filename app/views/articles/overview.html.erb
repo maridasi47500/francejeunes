@@ -1,0 +1,13 @@
+<%=render "menumembres"%>
+
+<td>
+    <h2>Récapitulatif</h2>
+    <table>
+    <%@articles.each do |cat,articles|%>
+        <tr><th><%=cat%></th></tr>
+        <%articles.each do |article|%>
+        <tr><td><%=article.member.username%></td><td><%=link_to article.title, article.url%></td></tr>
+        <%end%>
+    <%end%>
+    </table>
+</td>

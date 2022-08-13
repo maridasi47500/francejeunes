@@ -1,0 +1,56 @@
+.select2-container {
+  border: medium none;
+  box-shadow: inherit;
+  margin: 0;
+  padding: 0;
+  height: 38px;
+}
+.select2-container .select2-choice {
+  -moz-user-select: none;
+  background-clip: padding-box;
+  background-color: #fff;
+  background-image: -moz-linear-gradient(center bottom, #eeeeee 0%, #ffffff 50%);
+  border: 1px solid #aaa;
+  color: #666666;
+  font-family: arial, sans-serif !important;
+  display: block;
+  height: 26px;
+  line-height: 29px;
+  overflow: hidden;
+  padding: 0 0 0 8px;
+  position: relative;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 100;
+}
+div .select2-container .select2-choice {
+  background-image: inherit;
+  border: 1px solid #cccccc;
+  box-shadow: inherit;
+  color: #666666;
+  height: 33px;
+  padding: 3px 0 0 8px;
+}
+div .select2-container .select2-choice .select2-arrow {
+  background: inherit;
+  border-left: 1px solid #cccccc;
+  border-radius: 0 3px 3px 0;
+  display: inline-block;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30px;
+}
+div .select2-container .select2-choice .select2-arrow b {
+  border-color: #4d504a transparent transparent;
+  border-style: solid;
+  border-width: 4px 4px 0;
+  height: 0 !important;
+  margin: 15px 10px;
+  width: 0 !important;
+}
+.select2-drop.select2-drop-active {
+  border: 1px solid #cccccc;
+  box-shadow: inherit;
+}

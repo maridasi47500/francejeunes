@@ -1,0 +1,20 @@
+<td>
+    
+    <%=form_with scope: "", model: @forum, url: newprivateforum2_path(tid: @forum.id) do |form|%>
+    
+        <%=form.label :title, "titre"%>
+    <%=form.text_area :title%>
+
+    
+        <br><br>
+
+    <%=form.label :content, "contenu"%>
+    <%=form.text_area :content%>
+    <br><br>
+    <%=form.hidden_field :updatemember_id, value: current_member.id%>
+    <%=form.submit "Editer un forum privé"%>
+    
+    <%end%>
+    
+    
+</td>

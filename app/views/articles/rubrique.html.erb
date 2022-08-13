@@ -1,0 +1,120 @@
+            <table width="100%" cellspacing="10" cellpadding="0" border="0">
+                <tr>
+                    
+                    
+                    
+                    
+<%=render "rubriques"%>                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <td width="100%" valign="top"><div align="justify"><h1><%=@category.name%></h1>. <a href="read?php?tid=-1&tid2=3"><b>Un article au hasard</b></a><br>. <b>Trier : <a href="rubrique-<%=@category.myurl%>.htm">Date</a>, <a href="rubrique-<%=@category.myurl%>.htm?order=titre">Titre</a>, <a href="rubrique-<%=@category.myurl%>.htm?order=affichages DESC">Affichages</a>, <a href="rubrique-<%=@category.myurl%>.htm?order=membre">Auteur</a></b><br><br><table cellspacing="0" cellpadding="2" border="0" width="100%"><tr><td colspan="3" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></table></td></tr>
+                                
+                                
+                                <tr><td width="50%" valign="top">
+                                        
+                                        
+                                        
+                                        <table cellspacing="0" cellpadding="2" border="0" width="100%">
+                                            
+                                            
+<%=render collection: @articles[0].to_a, partial: "articles/articlefromcategory", as: :article%>                  
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                                                          
+                                        
+                                        </table>
+                                    
+                                    
+                                    </td>
+                                    <td bgcolor="#373C4F" style="padding: 0px;">
+                                        
+                                        
+                                        <img src="/images/invisible.gif" width="1" height="1"></td>
+                                    
+                                    <td valign="top" width="50%">
+                                        <table cellspacing="0" cellpadding="2" border="0" width="100%">
+                                            
+                                    <%=render collection: @articles[1].to_a, partial: "articles/articlefromcategory", as: :article%>                  
+                                                          
+                                        
+                                        </table>
+                                    
+                                    
+                                    </td>
+                                </tr><tr><td colspan="3" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></table></td></tr><tr height="15" bgcolor="#FFFFFF"><td colspan="3" align="right"><a href="rubrique-<%=@category.myurl%>.htm?start=10&order=date_publication DESC">page suivante</a>&nbsp;</td></tr><tr><td colspan="3" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></table></td></tr><tr height="15" bgcolor="#F0F1F6"><td colspan="3"><b><%=@articlenb%> articles affich&eacute;s</b> dans la rubrique <b><%=@category.name%></b>.</td></tr></table><div id="inner_ad"></div></div></td><td valign="top">
+
+                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                            <tr><td bgcolor="#63632A"><img src="images/invisible.gif" width="220" height="1"></td></tr>
+                            <tr><td bgcolor="#EAEAC2" align="center"><div class="margin">
+                                        <table width="100%" cellspacing="0" cellpadding="0" border="0" style="text-align: center;">
+                                            <tr><td class="small"><a href="/" class="mr"><img src="images/articles.gif" border="0"><br>articles</a></td><td class="small"><a href="discut.php" class="mr"><img src="images/forums.gif" border="0"><br>forums</a></td><td class="small"><a href="members.php" style="line-height: 8px;" class="mr"><img src="images/membres.gif" border="0"><br>espace<br>membres</a></td></tr>
+                                        </table>
+                                    </div></td></tr>
+                            <tr><td bgcolor="#63632A"><img src="images/invisible.gif" width="1" height="1"></td></tr>
+                        </table>
+                        <img src="images/invisible.gif" width="1" height="10">
+
+                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                            <tr><td bgcolor="#63632A"><img src="images/invisible.gif" width="220" height="1"></td></tr>
+                            <tr><td bgcolor="#EAEAC2" align="center"><div class="margin">
+                                        <table width="100%" cellspacing="0" cellpadding="0" border="0" style="text-align: center;">
+                                            <tr><td valign="top" class="small"><a href="paroles.php" class="mr"><img src="images/paroles.gif" border="0"><br>paroles</a></td><td valign="top" class="small"><a href="imgserv.php" class="mr"><img src="images/images.gif" border="0"><br>images</a></td><td valign="top" class="small"><a href="meetings.php" class="mr"><img src="images/rencontres.gif" border="0"><br>rencontres</a></td></tr>
+                                        </table>
+                                    </div></td></tr>
+                            <tr><td bgcolor="#63632A"><img src="images/invisible.gif" width="1" height="1"></td></tr>
+                        </table>
+                        <img src="images/invisible.gif" width="1" height="10">
+                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                            <tr><td bgcolor="#63632A"><img src="images/invisible.gif" width="220" height="1"></td></tr>
+                            <tr><td bgcolor="#EAEAC2"><div class="margin">
+                                        . <a href="ultra.php" onClick="window.open('ultra.php', '_blank', 'width=770,height=480,scrollbars=1,toolbar=0,titlebar=0,status=0,resizable=1');
+                                            document.location.href = 'ultrazone.php';
+                                            return(false);" target="_blank" class="mr" style="font-size: 12px; font-weight: bold;">Devenir ultramembre</a><br>
+                                        . <a href="help.php" class="mr">Aide en ligne (FAQ)</a><br>
+                                        . <a href="link.php" class="mr">Faire un lien vers le site</a><br>
+                                        . <a href="annonceurs.php" class="mr">Annoncez sur france-jeunes</a><br>
+                                        . <a href="contact.php" class="mr">Contacts</a><br>
+                                    </div></td></tr>
+                            <tr><td bgcolor="#63632A"><img src="images/invisible.gif" width="1" height="1"></td></tr>
+                        </table>
+                        <img src="images/invisible.gif" width="1" height="10">
+                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                            <tr><td bgcolor="#63632A"><img src="images/invisible.gif" width="220" height="1"></td></tr>
+                            <form method="post" action="lettre.php" onsubmit="post.disabled = true;">
+                                <tr><td bgcolor="#EAEAC2" class="mr"><div class="margin">
+                                            <b>Recevoir la lettre d'information :</b><br><center>
+                                                <input type="text" name="form_email" value="Indiquez votre e-mail" onFocus="javascript:if (this.value == 'Indiquez votre e-mail')
+                                                      this.value = '';" size="20" style="width: 160px;"> <input type="submit" name="post" value="OK">
+                                            </center></div></td></tr>
+                            </form>
+                            <tr><td bgcolor="#63632A"><img src="images/invisible.gif" width="1" height="1"></td></tr>
+                        </table><img src="images/invisible.gif" width="1" height="10">
+                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                            <tr><td bgcolor="#63632A"><img src="images/invisible.gif" width="220" height="1"></td></tr>
+                            <tr><td bgcolor="#EAEAC2" class="mr"><div class="margin"><b>Connect&eacute;s :</b><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>0</b> <a href="connectes.php" class="mr"><u>membres</u></a> et <b>205</b> visiteurs</div></td></tr>
+                            <tr><td bgcolor="#63632A"><img src="images/invisible.gif" width="1" height="1"></td></tr>
+                        </table>
+                        <img src="images/invisible.gif" width="1" height="5"><br />
+                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffrance.jeunes%2F&tabs&width=220&height=200&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=119174524765571" width="220" height="200" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+                    </td></tr>
+            </table>
+
+            <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr><td bgcolor="#000000"><img src="images/invisible.gif" width="760" height="1"></td></tr>
+                <tr><td><table cellspacing="0" cellpadding="3" border="0" width="100%"><tr><td width="100%" valign="top"><a href="go.php?tid=127" target="_blank">tubededentifrice.com</a>, <a href="partenaires.php">...</a></td><td align="right" valign="top" NOWRAP><i>&nbsp;&nbsp;&nbsp;&nbsp;<b>CNIL: 752143.</b></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/rubrique-<%=@category.myurl%>.htm?form_large_screen=1" style="text-decoration: none;">&nbsp;|]&nbsp;</a><a href="/rubrique-<%=@category.myurl%>.htm?form_font_size=12" style="text-decoration: none;">&nbsp;&#9650;&nbsp;</a></td></tr></table></td></tr>
+            </table>
+        </td><td bgcolor="#E1EEE1" background="images/ombre.gif"><img src="images/invisible.gif" width="9" height="1" border="0"></td><td bgcolor="#E1EEE1" background="images/quadri.gif" width="100%"></td></tr>
+</table>
+<ins data-revive-zoneid="12" data-revive-id="19457f340be8d054289faaacff241635"></ins>
+</body>

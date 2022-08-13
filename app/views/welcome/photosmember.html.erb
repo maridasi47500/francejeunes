@@ -1,0 +1,30 @@
+<td>
+    <%=form_with url: updatemember_path, scope: "",model: current_member do |kk|%>
+    <table>
+            <%current_member.photos.each_slice(4).to_a.each do |photos|%>
+        <tr>
+            <%photos.each do |foto|%>
+                        <td>
+
+    <%=kk.fields_for :photos, foto do |ll|%>
+              <%=render "images/imagewithouttable", image: foto%>
+                <%=ll.check_box :_destroy%>
+                <%=ll.label :_destroy, "Supprimer"%>
+    <%end%>
+                                        </td>
+
+            <%end%>
+                            
+        </tr>
+    <%end%>
+                </table>
+
+    <div>
+      <%=kk.label :photosmembre, "Photos du membre"%>
+      <%=kk.file_field :photosmembre, multiple: true%>
+    </div>
+    <div>
+      <%=kk.submit "envoyer"%>
+    </div>
+    <%end%>
+</td>

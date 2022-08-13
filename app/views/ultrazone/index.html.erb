@@ -1,0 +1,87 @@
+<td width="100%" valign="top"><div align="justify"><script language="javascript">
+function ChangeUrl(formulaire)
+{location.href="ultrazone.php?&actions="+formulaire.action.options[formulaire.action.selectedIndex].value;}
+function ChangeUrl2(formulaire)
+{location.href="ultrazone.php?&actions=&form_article="+formulaire.form_article.options[formulaire.form_article.selectedIndex].value;}
+</script>
+
+<table width="100%">
+<form method="get" action="ultrazone.php">
+<tbody><tr><td nowrap=""><b>Aller à :</b>&nbsp;</td><td>
+            
+            
+            <%=select_tag "actions", options_for_select([["Devenir ultramembre",""], [ "Qui a lu vos articles ?", "articles"], ['Voir les notes pour vos articles', 'articles_notes'], ["qui a regardé votre fiche ?", "fiche"], ["Gestion de vos forums privés (webcommunautés)", "webcos"]], params[:actions]), {onchange: "ChangeUrl(this.form)"}%>
+
+</td><td width="100%">&nbsp;<input type="submit" value="Go"></td></tr><tr><td colspan="3" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr></tbody></table><br>
+
+
+</tbody>
+
+</form>
+    </table>
+    <br>
+    <%case params[:actions]%>
+    <%when "articles_notes"%>
+    <h2>les notes pour vos articles</h2>
+      <%if @members.length > 0%>
+            <table>
+
+      <%@members.each do |member|%>
+                <tr>
+                    <td>
+                        <%=member.mname%>
+                    </td>
+                <td>
+                        (<%=member.atitle%>)s
+                    </td>
+                     <td>
+                        <%member.nbstar.times do%>
+                         <img src="/images/star1.png" width="30px" height="30px"/>
+                         <%end%>
+                    </td>
+            </tr>
+            <%end%>
+                    <table>
+
+            <%else%>
+                        <p>aucun membre n'a noté vos articles pour le moment.</p>
+    
+                        <%end%>
+    <%when "articles"%>
+    <h2>qui a lu vos articles ?</h2>
+      <%if @members.length > 0%>
+
+        <table>
+      <%@members.each do |member|%>
+                <tr>
+                        <td>
+                      <%=member.id == current_member.id ? member.mname+" (moi)" : member.mname%>
+                    </td>
+                        <td>
+                      <%=member.arttitle%>
+                    </td>
+            </tr>
+            <%end%>
+        </table>
+    <%else%>
+    <p>Personne n'a lu vos articles pour le moment.</p>
+    <%end%>
+    <%when "fiche"%>
+    <h2>qui a vu votre fiche ?</h2>
+      <%if @members.length > 0%>
+            <table>
+
+      <%@members.each do |member|%>
+                <tr>
+                        <%=member.username%>
+                    </td>
+            </tr>
+            <%end%>
+                    <table>
+
+            <%else%>
+                        <p>aucun membre n'a vu votre fiche pour le moment.</p>
+            <%end%>
+    
+    <%end%>
+</td>

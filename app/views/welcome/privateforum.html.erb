@@ -1,0 +1,35 @@
+<td>
+      <table>
+                          <tr>
+                    <th>membre</th>
+                    <th>titre</th>
+                </tr>
+
+      <%Privateforum.all.each do |y|%>
+                <tr>
+                    
+                    <td><%=y.member.username%></td>
+                                        <td><%=link_to y.title, privateforum_path(tid: y.id)%>  </td>
+
+            </tr>
+            <%end%>
+    </table>
+    <br>
+    <%=form_with url: newprivateforum_path do |form|%>
+    
+        <%=form.label :title, "titre"%>
+    <%=form.text_area :title%>
+
+    
+        <br><br>
+
+    <%=form.label :content, "contenu"%>
+    <%=form.text_area :content%>
+    <br><br>
+    <%=form.hidden_field :member_id, value: current_member.id%>
+    <%=form.submit "Créer un forum privé"%>
+    
+    <%end%>
+    
+    
+</td>

@@ -1,0 +1,50 @@
+<td width="100%" valign="top"><div align="justify"><script language="javascript">
+function ChangeUrl(formulaire)
+{location.href="imgserv.php?&tid="+formulaire.tid.options[formulaire.tid.selectedIndex].value+"&rubrique="+formulaire.tid.options[formulaire.tid.selectedIndex].value;}
+function ChangeUrl2(formulaire)
+{location.href="imgserv.php?&tid=<%=@rubrique.try(:id)%>&tid2="+formulaire.tid2.options[formulaire.tid2.selectedIndex].value+"&rubrique="+formulaire.tid2.options[formulaire.tid2.selectedIndex].value;}
+</script>
+<table width="100%"><form method="get" action="imgserv.php">
+        
+<tbody><tr><td nowrap=""><b>Rubrique :</b>&nbsp;</td><td>
+            
+            
+<%=select_tag :tid, options_for_select(@rubriques.collect{|h|[h.name, h.id]}, @rubrique.try(:id)), {onchange: "ChangeUrl(this.form)", include_blank: "Choix de la rubrique"}%>            
+        </td>
+        <td>
+            
+     <%=select_tag :tid2, options_for_select(@sousrubriques.collect{|h|[h.name, h.id]},@sousrubrique.try(:id)), {onchange: "ChangeUrl2(this.form)", include_blank: "Choix de la sous-rubrique"}%>            
+       
+        
+        
+        </td><td width="100%">&nbsp;<input type="submit" value="Go"></td></tr><tr><td colspan="4" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr></tbody>
+
+</form>
+</table>
+
+
+<br>
+<h1><%=@sousrubrique.name%></h1>. 
+
+
+
+<a href="imgserv_add.php?rubrique=<%=@sousrubrique.id%>">Ajouter des images dans cette rubrique</a><br><br><table cellspacing="0" cellpadding="2" border="0" width="100%"><tbody>
+        <%@images.each do |images|%>
+        <tr>
+            <%=render collection: images, partial: "image", as: :image%>
+        </tr>
+        <%end%>
+            <tr><td colspan="3" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td>
+            </tr>
+          <tr height="15">
+              <%if @previous%><td colspan="2" align="left"><a href="imgserv.php?tid=<%=@rubrique.id%>&amp;tid2=<%=@sousrubrique.id%>&amp;rubrique=<%=@sousrubrique.id%>&amp;start=<%=@previous%>">page précédente</a>&nbsp;</td><%end%>
+
+              <td>&nbsp;&nbsp;&nbsp;<%(1..((@sousrubrique.images.length / 12)+1)).to_a.each do |page|%><a href="imgserv.php?tid=<%=@rubrique.id%>&amp;tid2=<%=@sousrubrique.id%>&amp;rubrique=<%=@sousrubrique.id%>&amp;nbi=<%=page%>"><%=page%></a>&nbsp;&nbsp;<%end%>&nbsp;&nbsp;&nbsp;(<b><%=@nbpage%></b>)
+              </td>
+              
+              <%if @next%><td colspan="2" align="right"><a href="imgserv.php?tid=<%=@rubrique.id%>&amp;tid2=<%=@sousrubrique.id%>&amp;rubrique=<%=@sousrubrique.id%>&amp;start=<%=@next%>">page suivante</a>&nbsp;</td><%end%>
+          
+          </tr>  
+    <tr><td colspan="3" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr>
+    <tr height="15"><td colspan="3">. <a href="imgserv_add.php?rubrique=<%=@sousrubrique.id%>">Ajouter des images dans cette rubrique</a></td></tr>
+    </tbody></table></div></td>

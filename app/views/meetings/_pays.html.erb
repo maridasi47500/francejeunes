@@ -1,0 +1,25 @@
+<table cellspacing="0" cellpadding="2" border="0" width="100%"><tbody><tr height="15">
+                                <form method="post" action="meetings.php?<%=@params1.to_query%>" onsubmit="post.disabled=true;">
+
+            <td colspan="3"><b>Choix du pays (B<%if form_agemin && form_agemax%>/de <%=form_agemin%> à <%=form_agemax%> ans<%end%>) :</b></td></tr><tr><td colspan="3" style="padding: 0px;">
+                <table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody>
+                        <tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr>
+       
+        
+        
+        <%@countries.each_slice(2).each do |c|%>
+        <tr height="15" bgcolor="<%=cycle('#F0F1F6','#FFFFFF')%>">
+            <%c.each do |country|%>
+            <td width="50%">&nbsp;&nbsp;. <a href="meetings.php?<%=@params1.merge(actions: "ville", form_pays: country.name).to_query%>"><%=country.name%></a> (<%=country.members.count%> personne(s))</td>
+            <%end%>
+        </tr>
+        
+        <%end%>
+        
+        <tr><td colspan="3" style="padding: 0px;"><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td bgcolor="#373C4F"><img src="images/invisible.gif" width="1" height="1"></td></tr></tbody></table></td></tr>
+                                </form>       
+<%=render partial: "formulaire", locals: @params1%>
+    
+    </tbody>
+</table>
+
